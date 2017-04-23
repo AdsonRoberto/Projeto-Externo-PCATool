@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_adulto_g"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.developer.barbosa.pcatool.activity.adulto.AdultoG">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:text="@string/tituloG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/textView9" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:text="@string/GText1"
+            android:padding="2dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/GText2"
+            android:padding="2dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/GText3"
+            android:padding="2dp"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shrinkColumns="0">
+
+            <View android:layout_height="2dp" android:background="@color/colorPrimaryDark"></View>
+
+            <TableRow>
+                <TextView android:text="@string/opcao" android:padding="3dp"/>
+                <TextView android:text="@string/CertazaSim" android:textAlignment="center" android:padding="5dp" android:textStyle="bold"/>
+                <TextView android:text="@string/ProvavelSim" android:textAlignment="center" android:padding="5dp" android:textStyle="bold"/>
+                <TextView android:text="@string/ProvavelNao" android:textAlignment="center" android:padding="5dp" android:textStyle="bold"/>
+                <TextView android:text="@string/CertazaNao" android:textAlignment="center" android:padding="5dp" android:textStyle="bold"/>
+                <TextView android:text="@string/NaoSei" android:textAlignment="center" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="@string/G1" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G2" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G3" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G4" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G5" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G6" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G7" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G8" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G9" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G10" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G11" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G12" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G13" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G14" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G15" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G16" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G17" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G18" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G19" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G20" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G21" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView android:text="@string/G22" android:padding="3dp"/>
+                <RadioButton android:text="@string/P4" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P3" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P2" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P1" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+                <RadioButton android:text="@string/P9" android:layout_gravity="center_horizontal|center_vertical" android:padding="5dp"/>
+            </TableRow>
+
+        </TableLayout>
+
+
+        <Button
+            android:text="@string/Prosseguir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:id="@+id/proximo" />
+    </LinearLayout>
+
+</ScrollView>

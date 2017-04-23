@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Padroes A-->
+    <string name="tituloProfissionalA">A – ACESSO DE PRIMEIRO CONTATO – ACESSIBILIDADE</string>
+    <string name="A1P">A1 – Seu serviço de saúde está aberto sábado ou domingo?</string>
+    <string name="A2P">A2 - Seu serviço de saúde está aberto, pelo menos em alguns dias da semana até as 20 hs?</string>
+    <string name="A3P">A3 – Quando seu serviço de saúde está aberto e algum paciente adoece, alguém do seu serviço o atende no mesmo dia?</string>
+    <string name="A4P">A4 – Quando o seu serviço de saúde está aberto, os pacientes conseguem aconselhamento rápido pelo telefone quando julgam ser necessário?</string>
+    <string name="A5P">A5 – Quando seu serviço de saúde está fechado existe um número de telefone para o qual os pacientes possam ligar quando adoecem?</string>
+    <string name="A6P">A6. Quando seu serviço de saúde está fechado aos sábados e domingos e algum paciente seu fica doente, alguém do seu serviço o atende no mesmo dia?</string>
+    <string name="A7P">A7 – Quando seu serviço de saúde está fechado à noite e algum paciente fica doente, alguém de seu serviço o atende naquela noite?</string>
+    <string name="A8P">A8 – É fácil para um paciente conseguir marcar hora para uma consulta de revisão de saúde (consulta de rotina, check-up) no seu serviço de saúde?</string>
+    <string name="A9P">A9 – Na média, os pacientes têm de esperar mais de 30 minutos para serem atendidos pelo médico ou pelo enfermeiro (sem contar a triagem ou o acolhimento)?</string>
+
+    <!--Padroes B-->
+    <string name="tituloProfissionalB">B - LONGITUDINALIDADE</string>
+    <string name="B1P">B1 – No seu serviço de saúde, os pacientes são sempre atendidos pelo mesmo médico/enfermeiro?</string>
+    <string name="B2P">B2 – Você consegue entender as perguntas que seus pacientes lhe fazem?</string>
+    <string name="B3P">B3 – Seus pacientes entendem o que você diz ou pergunta a eles?</string>
+    <string name="B4P">B4 – Se os pacientes têm uma pergunta, podem telefonar e falar com o médico ou enfermeiro que os conhece melhor?</string>
+    <string name="B5P">B5 – Você dá aos pacientes tempo suficiente para falarem sobre as suas preocupações ou problemas?</string>
+    <string name="B6P">B6 – Você acha que seus pacientes se sentem confortáveis ao lhe contar suas preocupações ou problemas?</string>
+    <string name="B7P">B7 – Você conhece mais seus pacientes como pessoa do que somente como alguém com um problema de saúde?</string>
+    <string name="B8P">B8 – Você sabe quem mora com cada um de seus pacientes?</string>
+    <string name="B9P">B9 – Você entende quais problemas são os mais importantes para os pacientes que você atende?</string>
+    <string name="B10P">B10 – Você conhece o histórico de saúde completo de cada paciente?</string>
+    <string name="B11P">B11 – Você sabe qual o trabalho ou emprego de cada paciente?</string>
+    <string name="B12P">B12 – Você teria conhecimento caso seus pacientes não conseguissem as medicações receitadas ou tivessem dificuldades de pagar por elas?</string>
+    <string name="B13P">B13 – Você sabe todos os medicamentos que seus pacientes estão tomando?</string>
+
+    <!--Padroes C-->
+    <string name="tituloProfissionalC">C - COORDENAÇÃO – INTEGRAÇÃO DE CUIDADOS</string>
+    <string name="C1P">C1 – Você tem conhecimento de todas as consultas que seus pacientes fazem a especialistas ou serviços especializados?</string>
+    <string name="C2P">C2 – Quando seus pacientes necessitam um encaminhamento, você discute com os pacientes sobre diferentes serviços onde eles poderiam ser atendidos?</string>
+    <string name="C3P">C3 – Alguém de seu serviço de saúde ajuda o paciente a marcar a consulta encaminhada?</string>
+    <string name="C4P">C4 – Quando seus pacientes são encaminhados, você lhes fornece informação escrita para levar ao especialista ou serviço especializado?</string>
+    <string name="C5P">C5 – Você recebe do especialista ou do serviço especializado informações úteis sobre o paciente encaminhado</string>
+    <string name="C6P">C6 – Após a consulta com o especialista ou serviço especializado, você fala com seu paciente sobre os resultados desta consulta?</string>
+
+    <!--Padroes D-->
+    <string name="tituloProfissionalD">D - COORDENAÇÃO – SISTEMA DE INFORMAÇÕES</string>
+    <string name="D1P">D1 – Você solicita aos pacientes que tragam seus registros médicos recebidos no passado (ex.: boletins de atendimento de emergência ou relatório hospitalar)?</string>
+    <string name="D2P">D2 – Você permitiria aos pacientes examinar seus prontuários se assim quisessem?</string>
+    <string name="D3P">D3 – Os prontuários do paciente estão disponíveis quando você os atende?</string>
+
+    <!--Padroes E-->
+    <string name="tituloProfissionalE">E – INTEGRALIDADE – SERVIÇOS DISPONÍVEIS </string>
+    <string name="EText1P">Se um paciente tem necessidade de qualquer dos seguintes serviços poderia obtê-los no seu serviço de saúde?</string>
+    <string name="EText2P">(Repetir essa frase a cada 3-4 itens)</string>
+    <string name="E1P">E1 – Aconselhamento nutricional.</string>
+    <string name="E2P">E2 – Imunizações.</string>
+    <string name="E3P">E3 – Verificação se as famílias podem participar de algum programa ou benefício de assistência social</string>
+    <string name="E4P">E4 – Avaliação da saúde bucal.</string>
+    <string name="E5P">E5 – Tratamento dentário.</string>
+    <string name="E6P">E6 – Planejamento familiar ou mé- todos anticoncepcionais</string>
+    <string name="E7P">E7 – Aconselhamento ou tratamento para o uso prejudicial de drogas (lícitas ou ilícitas).</string>
+    <string name="E8P">E8 – Aconselhamento para problemas de saúde mental.</string>
+    <string name="E9P">E9 – Sutura de um corte que necessite de pontos.</string>
+    <string name="E10P">E10 – Aconselhamento e solicitação de teste anti-HIV.</string>
+    <string name="E11P">E11 – Identificação (Algum tipo de avaliação) de problemas auditivos (para escutar).</string>
+    <string name="E12P">E12 – Identificação (Algum tipo de avaliação) de problemas visuais (para enxergar).</string>
+    <string name="E13P">E13 – Colocação de tala (ex: para tornozelo torcido).</string>
+    <string name="E14P">E14 – Remoção de verrugas.</string>
+    <string name="E15P">E15 – Exame preventivo para câncer de colo de útero (Teste Papanicolau).</string>
+    <string name="E16P">E16 – Aconselhamento sobre como parar de fumar</string>
+    <string name="E17P">E17 – Cuidados pré-natais.</string>
+    <string name="E18P">E18 – Remoção de unha encravada.</string>
+    <string name="E19P">E19 – Orientações sobre cuidados em saúde caso o paciente fique incapacitado e não possa tomar decisões (ex: coma).</string>
+    <string name="E20P">E20 – Aconselhamento sobre as mudanças que acontecem com o envelhecimento (ex: diminuição da memória, risco de cair).</string>
+    <string name="E21P">E21 – Orientações sobre cuidados no domicílio para alguém da família do paciente como: curativos, troca de sondas, banho na cama.</string>
+    <string name="E22P">E22 – Inclusão em programa de suplementação alimentar (ex: leite e alimentos).</string>
+
+    <!--Padroes F-->
+    <string name="tituloProfissionalF">F – INTEGRALIDADE – SERVIÇOS PRESTADOS  </string>
+    <string name="FText1P">Pergunte: Você atende pacientes (leia as alternativas): </string>
+    <string name="FOpcao1P">de todas as idades</string>
+    <string name="FOpcao2P">somente crianças e adolescentes (menores de 18 anos</string>
+    <string name="FOpcao3P">somente adultos </string>
+    <string name="FText2P">Conforme a resposta acima, oriente o entrevistado da seguinte forma:</string>
+    <string name="FText3P">Se você atende todas as idades, por favor responda todas as perguntas desta seção (F1 a F15). </string>
+    <string name="FText4P">Se você atende apenas crianças, por favor não responda as perguntas F4 a F13. </string>
+    <string name="FText5P">Se você atende apenas adultos, por favor não responda as perguntas F14 a F15. </string>
+    <string name="FText6P">Perguntas F1 – F3 se aplicam a todas faixas etárias </string>
+    <string name="FText7P">Você discute os seguintes assuntos com seus pacientes ou seus responsáveis? (repita esta pergunta a cada 3 itens)</string>
+    <string name="F1P">F1 – Conselhos sobre alimentação saudável ou sobre dormir suficientemente.</string>
+    <string name="F2P">F2 – Segurança no lar, ex: como guardar medicamentos em segurança.</string>
+    <string name="F3P">F3 – Aconselhamento sobre o uso de cinto de segurança, assentos seguros para crianças ao andar de carro, evitar que crianças tenham queda de altura.</string>
+    <string name="FText8P">Perguntas F4 – F13 se aplicam apenas a adultos (18 anos e acima). Entrevistador pergunte: “Você discute os seguintes assuntos com seus pacientes ?”</string>
+    <string name="F4P">F4 – Maneiras de lidar com conflitos de família que podem surgir de vez em quando.</string>
+    <string name="F5P">F5 – Conselhos a respeito de exercícios físicos apropriados.</string>
+    <string name="F6P">F6 – Testes de sangue para verificar os níveis de colesterol.</string>
+    <string name="F7P">F7 – Verificar e discutir os medicamentos que o paciente está usando.</string>
+    <string name="F8P">F8 – Possíveis exposições a substâncias perigosas (ex: veneno para formiga/para rato, água sanitária), no lar, no trabalho, ou na vizinhança do paciente.</string>
+    <string name="F9P">F9 – Pergunta se o paciente tem uma arma de fogo e orienta como guardá-la com segurança.</string>
+    <string name="F10P">F10 – Como prevenir queimaduras causadas por água quente, óleo quente</string>
+    <string name="F11P">F11 – Como prevenir quedas</string>
+    <string name="F12P">F12 – Prevenção de osteoporose em mulheres.</string>
+    <string name="F13P">F13 – Cuidado de problemas comuns relativos a menstruação ou a menopausa.</string>
+    <string name="FText9P">As perguntas F14 – F15 se aplicam apenas a crianças. Entrevistador pergunte: “Os seguintes assuntos são discutidos com a criança e pais/responsável?”</string>
+    <string name="F14P">F14 – Maneiras de lidar com os problemas de comportamento das crianças.</string>
+    <string name="F15P">F15 – Mudanças do crescimento e desenvolvimento da criança esperadas para cada faixa etária</string>
+
+    <!--Padroes G-->
+    <string name="tituloProfissionalG">G - ORIENTAÇÃO FAMILIAR </string>
+    <string name="G1P">G1 – Você pergunta aos pacientes quais suas idéias e opiniões ao planejar o tratamento e cuidado do paciente ou membro da família?</string>
+    <string name="G2P">G2 – Você pergunta sobre doenças e problemas de saúde que possam ocorrer nas famílias dos pacientes?</string>
+    <string name="G3P">G3 – Você está disposto e capaz de atender membros da família dos pacientes para discutir um problema de saúde ou problema familiar?</string>
+
+    <!--Padroes H-->
+    <string name="tituloProfissionalH">H – ORIENTAÇÃO COMUNITÁRIA </string>
+    <string name="H1P">H1 – Você ou alguém do seu serviço de saúde faz visitas domiciliares?</string>
+    <string name="H2P">H2 – Você crê que seu serviço de saúde tem conhecimento adequado dos problemas de saúde da comunidade que atende?</string>
+    <string name="H3P">H3 – Seu serviço de saúde ouve opiniões e idéias da comunidade de como melhorar os serviços de saúde?</string>
+    <string name="HText1P">Seu serviço de saúde usa os seguintes métodos para monitorar e/ou avaliar a efetividade dos serviços/programas?</string>
+    <string name="H4P">H4 – Faz pesquisas com os pacientes para ver se os serviços estão satisfazendo (atendendo) as necessidades das pessoas?</string>
+    <string name="H5P">H5 – Faz pesquisas na comunidade para identificar problemas de saúde que ele deveria conhecer?</string>
+    <string name="H6P">H6 – Presença de usuários no Conselho Local de Saúde (Conselho Gestor, Conselho de Usuários).</string>
+
+    <!--Padrao-->
+    <string name="Prosseguirp">Prosseguir -></string>
+    <string name="opcaop">Por favor, indique a melhor opção</string>
+    <string name="CertazaSimp">Com certeza, sim</string>
+    <string name="CertazaNaop">Com certeza, não</string>
+    <string name="ProvavelSimp">Provavelmente, sim</string>
+    <string name="ProvavelNaop">Provavelmente, não</string>
+    <string name="NaoSeip">Não sei / Não lembro</string>
+
+    <string name="Pp1">1</string>
+    <string name="Pp2">2</string>
+    <string name="Pp3">3</string>
+    <string name="Pp4">4</string>
+    <string name="Pp9">9</string>
+</resources>

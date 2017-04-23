@@ -1,0 +1,167 @@
+<resources>
+    <string name="app_name">PCATool</string>
+
+    <string name="tituloA">A – GRAU DE AFILIAÇÃO</string>
+    <string name="A1">A1 – Há um médico/enfermeiro ou serviço de saúde onde você geralmente vai quando fica doente ou precisa de conselhos sobre a sua saúde?</string>
+    <string name="A2">A2 – Há um médico/enfermeiro ou serviço de saúde queo/a conhece melhor como pessoa?</string>
+    <string name="A3">A3 – Há um médico/enfermeiro ou serviço de saúde que é mais responsável por seu atendimento de saúde?</string>
+    <string name="A4">A4 - Nome do médico/enfermeiro ou serviço de saúde procurado pela última vez: </string>
+    <string name="A5">A5 - (“nome do médico/enfermeiro/serviço de saúde”)</string>
+
+    <!--Padroes A1-->
+    <string name="Nao">Não</string>
+    <string name="SimA1">Sim (Por favor, dê o nome e endereço)</string>
+
+    <!--Padroes A2-->
+    <string name="NaoA2">Não</string>
+    <string name="SimA21">Sim, mesmo médico/enfermeiro/serviço de saúde que acima</string>
+    <string name="SimA22">Sim, médico/enfermeiro/serviço de saúde diferente (Por favor, dê o nome e endereço)</string>
+
+    <!--Padroes A3-->
+    <string name="NaoA3">Não</string>
+    <string name="SimA31">Sim, mesmo que A1 e A2 acima.</string>
+    <string name="SimA32">Sim, o mesmo que A1 somente.</string>
+    <string name="SimA33">Sim, o mesmo que A2 somente.</string>
+    <string name="SimA34">Sim, diferente de A1 e A2 (Por favor, dê o nome e endereço).</string>
+
+    <!--Padroes B-->
+    <string name="tituloB">B – ACESSO DE PRIMEIRO CONTATO – UTILIZAÇÃO</string>
+    <string name="B1">B1 – Quando você necessita de uma consulta de revisão (consulta de rotina, check-up), você vai ao seu “nome do serviço de saúde / ou nome médico/enfermeiro” antes de ir a outro serviço de saúde?</string>
+    <string name="B2">B2 – Quando você tem um novo problema de saúde, você vai ao seu “nome do serviço de saúde / ou nome médico/enfermeiro” antes de ir a outro serviço de saúde?</string>
+    <string name="B3">B3 – Quando você tem que consultar um especialista, o seu “nome do serviço de saúde / ou nome médico/ enfermeiro” tem que encaminhar você obrigatoriamente?</string>
+
+    <!--Padroes C-->
+    <string name="tituloC">C – ACESSO DE PRIMEIRO CONTATO – ACESSIBILIDADE</string>
+    <string name="C1">C1 – O “nome do serviço de saúde / ou nome médico/enfermeiro” fica aberto no sábado ou no domingo?</string>
+    <string name="C2">C2 – O “nome do serviço de saúde / ou nome médico/enfermeiro” fica aberto pelo menos algumas noites de dias úteis até às 20 horas?</string>
+    <string name="C3">C3 – Quando o seu “nome do serviço de saúde / ou nome médico/ enfermeiro” está aberto e você adoece alguém de lá atende você no mesmo dia?</string>
+    <string name="C4">C4 – Quando o seu “nome do serviço de saúde / ou nome médico/ enfermeiro” está aberto, você consegue aconselhamento rápido pelo telefone se precisar?</string>
+    <string name="C5">C5 – Quando o seu “nome do serviço de saúde / ou nome médico/enfermeiro” está fechado, existe um número de telefone para o qual você possa ligar quando fica doente?</string>
+    <string name="C6">C6 – Quando o seu “nome do serviço de saúde / ou nome médico/enfermeiro” está fechado no sábado e domingo e você fica doente, alguém deste serviço atende você no mesmo dia?</string>
+    <string name="C7">C7 – Quando o seu “nome do serviço de saúde / ou nome médico/enfermeiro” está fechado e você fica doente durante a noite, alguém deste serviço atende você naquela noite?</string>
+    <string name="C8">C8 – É fácil marcar hora para uma consulta de revisão (consulta de rotina, “check-up”) neste “nome do serviço de saúde / ou nome médico/ enfermeiro”?</string>
+    <string name="C9">C9 – Quando você chega no seu “nome do serviço de saúde / ou nome médico/enfermeiro”, você tem que esperar mais de 30 minutos para consultar com o médico ou enfermeiro (sem contar triagem ou acolhimento)?</string>
+    <string name="C10">C10 – Você tem que esperar por muito tempo, ou falar com muitas pessoas para marcar hora no seu “nome do serviço de saúde / ou nome médico/enfermeiro”?</string>
+    <string name="C11">C11 – É difícil para você conseguir atendimento médico do seu “nome do serviço de saúde / ou nome médico/enfermeiro” quando pensa que é necessário?</string>
+    <string name="C12">C12 – Quando você tem que ir ao “nome do médico / enfermeira / local”, você tem que faltar ao trabalho ou à escola para ir ao serviço de saúde?</string>
+
+    <!--Padroes D-->
+    <string name="tituloD">D – LONGITUDINALIDADE</string>
+    <string name="D1">D1 – Quando você vai ao seu “nome do serviço de saúde / ou nome médico/enfermeiro”, é o mesmo médico ou enfermeiro que atende você todas às vezes?</string>
+    <string name="D2">D2 – Você acha que o seu “médico/ enfermeiro” entende o que você diz ou pergunta?</string>
+    <string name="D3">D3 – O seu “médico/enfermeiro” responde suas perguntas de maneira que você entenda?</string>
+    <string name="D4">D4 – Se você tiver uma pergunta, pode telefonar e falar com o médico ou enfermeiro que melhor conhece você?</string>
+    <string name="D5">D5 – O seu “médico/enfermeiro” lhe dá tempo suficiente para falar sobre as suas preocupações ou problemas?</string>
+    <string name="D6">D6 – Você se sente à vontade contando as suas preocupações ou problemas ao seu “médico/enfermeiro”?</string>
+    <string name="D7">D7 – O seu “médico/enfermeiro” conhece você mais como pessoa do que somente como alguém com um problema de saúde?</string>
+    <string name="D8">D8 – O seu “médico/enfermeiro” sabe quem mora com você?</string>
+    <string name="D9">D9 – O seu “médico/enfermeiro” sabe quais problemas são mais importantes para você?</string>
+    <string name="D10">D10 – O seu “médico/enfermeiro” conhece a sua história clínica (história médica) completa?</string>
+    <string name="D11">D11 – O seu “médico/enfermeiro” sabe a respeito do seu trabalho ou emprego?</string>
+    <string name="D12">D12 – O seu “médico/enfermeiro” saberia de alguma forma se você tivesse problemas em obter ou pagar por medicamentos que você precisa?</string>
+    <string name="D13">D13 – O seu “médico/enfermeiro” sabe a respeito de todos os medicamentos que você está tomando?</string>
+    <string name="D14">D14 – Você mudaria do “nome do serviço de saúde / ou nome médico/ enfermeiro” para outro serviço de saúde se isto fosse muito fácil de fazer?</string>
+
+    <!--Padroes E-->
+    <string name="tituloE">E – COORDENAÇÃO – INTEGRAÇÃO DE CUIDADOS</string>
+    <string name="E1Sim">Sim</string>
+    <string name="E1Nao">Não (Passe para a questão F1)</string>
+    <string name="E1NaoSei">Não sei /não lembro (Passe para a questão F1)</string>
+    <string name="E1">E1 – Você já foi consultar qualquer tipo de especialista ou serviço especializado no período em que você está em acompanhamento no “nome do serviço de saúde / ou nome médico/enfermeiro”?</string>
+    <string name="E2">E2 – O “nome do serviço de saúde / ou nome médico/enfermeiro” sugeriu (indicou, encaminhou) que você fosse consultar com este especialista ou serviço especializado?</string>
+    <string name="E3">E3 – O “nome do serviço de saúde / ou nome médico/enfermeiro” sabe que você fez essas consultas com este especialista ou serviço especializado?</string>
+    <string name="E4">E4 – O seu “médico/enfermeiro” discutiu com você diferentes serviços onde você poderia ser atendido para este problema de saúde?</string>
+    <string name="E5">E5 - O seu “médico / enfermeiro” ou alguém que trabalha no / com “nome do serviço de saúde” ajudou-o /a a marcar esta consulta?</string>
+    <string name="E6">E6 – O seu “médico/enfermeiro” escreveu alguma informação para o especialista, a respeito do motivo desta consulta?</string>
+    <string name="E7">E7 – O “nome do serviço de saúde / ou nome médico/enfermeiro” sabe quais foram os resultados desta consulta?</string>
+    <string name="E8">E8 – Depois que você foi a este especialista ou serviço especializado, o seu “médico/enfermeiro” conversou com você sobre o que aconteceu durante esta consulta?</string>
+    <string name="E9">E9 – O seu “médico/enfermeiro” pareceu interessado na qualidade do cuidado que lhe foi dado (lhe perguntou se você foi bem ou mal atendido por este especialista ou serviço especializado)?</string>
+
+    <!--Padroes F-->
+    <string name="tituloF">F – COORDENAÇÃO – SISTEMA DE INFORMAÇÕES</string>
+    <string name="F1">F1. Quando você vai no “nome do serviço de saúde / ou nome médico/ enfermeiro” você leva algum dos registros de saúde ou boletins de atendimento que você recebeu no passado? (exemplificar se não entender “registro”: fichas de atendimento de emergência, resultado de exames de laboratório)</string>
+    <string name="F2">F2. Quando você vai ao “nome do serviço de saúde / ou nome médico/ enfermeiro”, o seu prontuário (história clínica) está sempre disponível na consulta?</string>
+    <string name="F3">F3. Você poderia ler (consultar) o seu prontuário/ficha se quisesse no “nome do serviço de saúde / ou nome médico/enfermeiro”?</string>
+    
+    <!--Padroes G-->
+    <string name="tituloG">G – INTEGRALIDADE – SERVIÇOS DISPONÍVEIS</string>
+    <string name="GText1">A seguir, apresentamos uma lista de serviços/orientações que você e sua família ou as pessoas que utilizam esse serviço podem necessitar em algum momento.</string>
+    <string name="GText2">Indique, por favor, se no “nome do serviço de saúde / ou nome médico/enfermeiro” esses serviços ou orientações estão disponíveis:</string>
+    <string name="GText3">(Repetir a cada 3-4 itens: “Está disponível no “nome do serviço de saúde / ou nome médico/enfermeiro”)</string>
+    <string name="G1">G1 – Respostas a perguntas sobre nutrição ou dieta.</string>
+    <string name="G2">G2 – Verificar se sua família pode participar de algum programa de assistência social ou benefícios sociais.</string>
+    <string name="G3">G3 – Programa de suplementação nutricional (ex: leite, alimentos).</string>
+    <string name="G4">G4 – Vacinas (imunizações).</string>
+    <string name="G5">G5 – Avaliação da saúde bucal (Exame dentário).</string>
+    <string name="G6">G6 – Tratamento dentário.</string>
+    <string name="G7">G7 – Planejamento familiar ou métodos anticoncepcionais.</string>
+    <string name="G8">G8 – Aconselhamento ou tratamento para o uso prejudicial de drogas (lícitas ou ilícitas, ex: álcool, cocaína, remédios para dormir).</string>
+    <string name="G9">G9 – Aconselhamento para problemas de saúde mental.</string>
+    <string name="G10">G10 – Sutura de um corte que necessite de pontos.</string>
+    <string name="G11">G11 – Aconselhamento e solicitação de teste anti-HIV.</string>
+    <string name="G12">G12 – Identificação (Algum tipo de avaliação) de problemas auditivos (para escutar).</string>
+    <string name="G13">G13 – Identificação (Algum tipo de avaliação) de problemas visuais (para enxergar).</string>
+    <string name="G14">G14 – Colocação de tala (ex: para tornozelo torcido).</string>
+    <string name="G15">G15 – Remoção de verrugas.</string>
+    <string name="G16">G16 – Exame preventivo para câncer de colo de útero (Teste Papanicolau).</string>
+    <string name="G17">G17 – Aconselhamento sobre como parar de fumar.</string>
+    <string name="G18">G18 – Cuidados pré-natais.</string>
+    <string name="G19">G19 – Remoção de unha encravada.</string>
+    <string name="G20">G20 – Aconselhamento sobre as mudanças que acontecem com o envelhecimento (ex.: diminuição da memória, risco de cair).</string>
+    <string name="G21">G21 – Orientações sobre cuidados no domicílio para alguém da sua família como: curativos, troca de sondas, banho na cama...</string>
+    <string name="G22">G22 – Orientações sobre o que fazer caso alguém de sua família fique incapacitado e não possa tomar decisões sobre sua saúde (ex.: doação de órgãos caso alguém de sua família fique incapacitado para decidir, por exemplo, em estado de coma).</string>
+
+    <!--Padroes H-->
+    <string name="tituloH">H – INTEGRALIDADE – SERVIÇOS PRESTADOS</string>
+    <string name="HText1">A seguir, apresentamos uma lista de serviços que você pode ter recebido em consulta no “nome do serviço de saúde / ou nome médico/enfermeiro”.</string>
+    <string name="HText2">Em consultas ao “nome do serviço de saúde / ou nome médico/enfermeiro”, algum dos seguintes assuntos já foram ou são discutidos (conversados) com você? (repetir essa frase a cada 3-4 itens).</string>
+    <string name="H1">H1– Conselhos sobre alimentação saudável ou sobre dormir suficientemente.</string>
+    <string name="H2">H2 – Segurança no lar, como guardar medicamentos em segurança.</string>
+    <string name="H3">H3 – Aconselhamento sobre o uso de cinto de segurança ou assentos seguros para crianças ao andar de carro.</string>
+    <string name="H4">H4 – Maneiras de lidar com conflitos de família que podem surgir de vez em quando.</string>
+    <string name="H5">H5 – Conselhos a respeito de exercícios físicos apropriados para você.</string>
+    <string name="H6">H6 – Testes de sangue para verificar os níveis de colesterol.</string>
+    <string name="H7">H7 – Verificar e discutir os medicamentos que você está tomando.</string>
+    <string name="H8">H8 – Possíveis exposições a substâncias perigosas (ex: veneno para formiga/para rato, água sanitária), no seu lar, no trabalho, ou na sua vizinhança.</string>
+    <string name="H9">H9 – Perguntar se você tem uma arma de fogo e orientar como guardá-la com segurança.</string>
+    <string name="H10">H10 – Como prevenir queimaduras (ex: causadas por água quente, óleo quente, outras substâncias).</string>
+    <string name="H11">H11 – Como prevenir quedas.</string>
+    <string name="H12">H12 – Só para mulheres: como prevenir osteoporose ou ossos frágeis.</string>
+    <string name="H13">H13 – Só para mulheres: o cuidado de problemas comuns da menstruação ou menopausa.</string>
+
+    <!--Padroes I-->
+    <string name="tituloI">I – ORIENTAÇÃO FAMILIAR</string>
+    <string name="I1">I1 – O seu “médico/enfermeiro” lhe pergunta sobre suas idéias e opiniões (sobre o que você pensa) ao planejar o tratamento e cuidado para você ou para um membro da sua família?</string>
+    <string name="I2">I2 – O seu “médico/enfermeiro” já lhe perguntou a respeito de doenças ou problemas comuns que podem ocorrer em sua família (câncer, alcoolismo, depressão)?</string>
+    <string name="I3">I3 – O seu “médico/enfermeiro” se reuniria com membros de sua família se você achasse necessário?</string>
+
+    <!--Padroes J-->
+    <string name="tituloJ">J – ORIENTAÇÃO COMUNITÁRIA</string>
+    <string name="J1">J1 – Alguém no “nome do serviço de saúde / ou nome médico/enfermeiro” faz visitas domiciliares?</string>
+    <string name="J2">J2 – O seu “nome do serviço de saúde / ou nome médico/enfermeiro” conhece os problemas de saúde importantes na sua vizinhança?</string>
+    <string name="J3">J3 – O seu “nome do serviço de saúde / ou nome médico/enfermeiro” ouve opiniões e idéias da comunidade de como melhorar os serviços de saúde?</string>
+    <string name="JText1">A seguir são listadas formas de avaliar a qualidade de serviços de saúde. O “nome do serviço de saúde / ou nome médico/enfermeiro” realiza alguma destas?</string>
+    <string name="J4">J4 – Faz pesquisas com os pacientes para ver se os serviços estão satisfazendo (atendendo) as necessidades das pessoas?</string>
+    <string name="J5">J5 – Faz pesquisas na comunidade para identificar problemas de saúde que ele deveria conhecer?</string>
+    <string name="J6">J6 – Convida você e sua família para participar do Conselho Local de Saúde (Conselho Gestor / Conselho de Usuários)?</string>
+
+    <!--Padroes-->
+    <string name="NomeProfissional">Nome do profissional ou serviço de saúde:</string>
+    <string name="endereco">Endereço:</string>
+    <string name="Esclarecer">Esclareça ao entrevistado que:\nA partir de agora, todas as perguntas seguintes serão sobre o(a):</string>
+    <string name="Prosseguir">Prosseguir -></string>
+
+    <string name="opcao">Por favor, indique a melhor opção</string>
+
+    <string name="CertazaSim">Com certeza, sim</string>
+    <string name="CertazaNao">Com certeza, não</string>
+    <string name="ProvavelSim">Provavelmente, sim</string>
+    <string name="ProvavelNao">Provavelmente, não</string>
+    <string name="NaoSei">Não sei / Não lembro</string>
+
+    <string name="P1">1</string>
+    <string name="P2">2</string>
+    <string name="P3">3</string>
+    <string name="P4">4</string>
+    <string name="P9">9</string>
+</resources>

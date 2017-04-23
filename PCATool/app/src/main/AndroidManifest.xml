@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.developer.barbosa.pcatool">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.Cadastro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Data Base -->
+        <meta-data
+            android:name="DATABASE"
+            android:value="banco_pcatool" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.developer.barbosa.pcatool.model" />
+
+        <activity android:name=".activity.ModuloQuestionario" />
+        <activity android:name=".activity.adulto.AdultoA" />
+        <activity android:name=".activity.adulto.AdultoB" />
+        <activity android:name=".activity.adulto.AdultoC" />
+        <activity android:name=".activity.adulto.AdultoD" />
+        <activity android:name=".activity.adulto.AdultoE" />
+        <activity android:name=".activity.adulto.AdultoF" />
+        <activity android:name=".activity.adulto.AdultoG" />
+        <activity android:name=".activity.adulto.AdultoH" />
+        <activity android:name=".activity.adulto.AdultoI" />
+        <activity android:name=".activity.adulto.AdultoJ" />
+        <activity android:name=".activity.profissional.ProfissionalA"/>
+        <activity android:name=".activity.profissional.ProfissionalB"/>
+        <activity android:name=".activity.profissional.ProfissionalC"/>
+        <activity android:name=".activity.profissional.ProfissionalD"/>
+        <activity android:name=".activity.profissional.ProfissionalE"/>
+        <activity android:name=".activity.profissional.ProfissionalF"/>
+        <activity android:name=".activity.profissional.ProfissionalG"/>
+        <activity android:name=".activity.profissional.ProfissionalH"/>
+        <activity android:name=".activity.Escore"></activity>
+    </application>
+
+</manifest>
