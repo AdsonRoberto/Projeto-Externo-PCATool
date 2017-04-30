@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">PCATool</string>
 
+    <string-array name="array_sexo">
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
+
     <string name="tituloA">A – GRAU DE AFILIAÇÃO</string>
     <string name="A1">A1 – Há um médico/enfermeiro ou serviço de saúde onde você geralmente vai quando fica doente ou precisa de conselhos sobre a sua saúde?</string>
     <string name="A2">A2 – Há um médico/enfermeiro ou serviço de saúde queo/a conhece melhor como pessoa?</string>
@@ -131,6 +136,7 @@
 
     <!--Padroes I-->
     <string name="tituloI">I – ORIENTAÇÃO FAMILIAR</string>
+    <string name="IText1">As perguntas a seguir são sobre o relacionamento do seu “nome do serviço de saúde / ou nome médico/enfermeiro” com sua família..</string>
     <string name="I1">I1 – O seu “médico/enfermeiro” lhe pergunta sobre suas idéias e opiniões (sobre o que você pensa) ao planejar o tratamento e cuidado para você ou para um membro da sua família?</string>
     <string name="I2">I2 – O seu “médico/enfermeiro” já lhe perguntou a respeito de doenças ou problemas comuns que podem ocorrer em sua família (câncer, alcoolismo, depressão)?</string>
     <string name="I3">I3 – O seu “médico/enfermeiro” se reuniria com membros de sua família se você achasse necessário?</string>

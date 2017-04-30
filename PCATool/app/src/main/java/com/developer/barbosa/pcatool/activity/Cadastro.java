@@ -10,32 +10,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.developer.barbosa.pcatool.Enum.Sexo;
 import com.developer.barbosa.pcatool.R;
-import com.facebook.stetho.Stetho;
 
 public class Cadastro extends AppCompatActivity {
+
+    private EditText nome;
+    private Spinner sexo;
+    private Button comecar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        Stetho.initializeWithDefaults(this);
+        nome = (EditText) findViewById(R.id.txtNome);
+        sexo = (Spinner) findViewById(R.id.spnSexo);
+        comecar = (Button) findViewById(R.id.btnComecar);
 
-        EditText nome = (EditText) findViewById(R.id.txtNome);
-        final Spinner sexo = (Spinner) findViewById(R.id.spSexo);
-        final Button comecar = (Button) findViewById(R.id.btnComecar);
-
-        ArrayAdapter<Sexo> adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,Sexo.values());
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.array_sexo,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sexo.setAdapter(adapter);
 
         sexo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.println(sexo.getSelectedItem().toString());
-                sexo.setPrompt(sexo.getSelectedItem().toString());
             }
 
             @Override
@@ -45,9 +44,10 @@ public class Cadastro extends AppCompatActivity {
         comecar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),ModuloQuestionario.class);
+                Intent intent = new Intent(getApplicationContext(), ModuloQuestionario.class);
                 startActivity(intent);
             }
         });
     }
+
 }

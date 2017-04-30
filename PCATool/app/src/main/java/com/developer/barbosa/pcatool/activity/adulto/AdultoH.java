@@ -10,13 +10,15 @@ import com.developer.barbosa.pcatool.R;
 
 public class AdultoH extends AppCompatActivity {
 
+    private Button btnProximo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adulto_h);
 
-        final Button btn = (Button) findViewById(R.id.proximo);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnProximo = (Button) findViewById(R.id.btnProximo);
+        btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AdultoI.class);
