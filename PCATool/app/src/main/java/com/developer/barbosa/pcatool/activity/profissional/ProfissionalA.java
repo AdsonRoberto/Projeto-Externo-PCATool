@@ -10,13 +10,15 @@ import com.developer.barbosa.pcatool.R;
 
 public class ProfissionalA extends AppCompatActivity {
 
+    private Button btnProximoP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_a);
 
-        final Button btn = (Button) findViewById(R.id.seguir);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        btnProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),ProfissionalB.class);

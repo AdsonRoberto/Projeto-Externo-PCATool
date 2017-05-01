@@ -11,13 +11,15 @@ import com.developer.barbosa.pcatool.activity.Escore;
 
 public class ProfissionalH extends AppCompatActivity {
 
+    private Button btnProximoP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_h);
 
-        final Button btn = (Button) findViewById(R.id.proximop);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        btnProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),Escore.class);
