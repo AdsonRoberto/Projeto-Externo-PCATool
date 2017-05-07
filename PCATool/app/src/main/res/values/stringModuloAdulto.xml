@@ -2,11 +2,12 @@
     <string name="app_name">PCATool</string>
 
     <string-array name="array_sexo">
-        <item>Masculino</item>
-        <item>Feminino</item>
+        <item>MASCULINO</item>
+        <item>FEMININO</item>
     </string-array>
 
     <string name="tituloA">A – GRAU DE AFILIAÇÃO</string>
+    <string name="AText1">IDENTIFICAÇÃO DO SERVIÇO DE SAÚDE OU MÉDICO/ENFERMEIRO A SER AVALIADO </string>
     <string name="A1">A1 – Há um médico/enfermeiro ou serviço de saúde onde você geralmente vai quando fica doente ou precisa de conselhos sobre a sua saúde?</string>
     <string name="A2">A2 – Há um médico/enfermeiro ou serviço de saúde queo/a conhece melhor como pessoa?</string>
     <string name="A3">A3 – Há um médico/enfermeiro ou serviço de saúde que é mais responsável por seu atendimento de saúde?</string>
@@ -87,7 +88,7 @@
     <string name="F1">F1 – Quando você vai no “nome do serviço de saúde / ou nome médico/ enfermeiro” você leva algum dos registros de saúde ou boletins de atendimento que você recebeu no passado? (exemplificar se não entender “registro”: fichas de atendimento de emergência, resultado de exames de laboratório)</string>
     <string name="F2">F2 – Quando você vai ao “nome do serviço de saúde / ou nome médico/ enfermeiro”, o seu prontuário (história clínica) está sempre disponível na consulta?</string>
     <string name="F3">F3 – Você poderia ler (consultar) o seu prontuário/ficha se quisesse no “nome do serviço de saúde / ou nome médico/enfermeiro”?</string>
-    
+
     <!--Padroes G-->
     <string name="tituloG">G – INTEGRALIDADE – SERVIÇOS DISPONÍVEIS</string>
     <string name="GText1">A seguir, apresentamos uma lista de serviços/orientações que você e sua família ou as pessoas que utilizam esse serviço podem necessitar em algum momento.</string>

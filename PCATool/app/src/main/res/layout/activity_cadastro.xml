@@ -44,11 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="Digite aqui o nome do entrevistado(a)"
             android:inputType="textPersonName"
             android:text=""
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
             android:textSize="15sp" />
 
         <TextView
@@ -69,21 +67,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Data de nascimeto:"
+            android:text="Idade:"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/txtDataNascimento"
+            android:id="@+id/txtIdade"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="  /  /"
             android:inputType="textPersonName"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
             android:textSize="15sp" />
 
         <Button

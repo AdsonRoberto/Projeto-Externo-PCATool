@@ -39,19 +39,19 @@
             android:layout_marginBottom="10dp">
 
             <RadioButton
-                android:id="@+id/rdgE1SimA"
+                android:id="@+id/rdoE1SimA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/E1Sim" />
 
             <RadioButton
-                android:id="@+id/rdgE1NaoA"
+                android:id="@+id/rdoE1NaoA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/E1Nao" />
 
             <RadioButton
-                android:id="@+id/rdgE1NaoSeiA"
+                android:id="@+id/rdoE1NaoSeiA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/E1NaoSei" />

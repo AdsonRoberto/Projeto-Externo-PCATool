@@ -1,40 +1,58 @@
 package com.developer.barbosa.pcatool.model;
 
-import com.developer.barbosa.pcatool.Enum.Sexo;
-import com.orm.SugarRecord;
-import com.orm.dsl.Table;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
- * Created by Bruno Barbosa on 10/01/2017.
+ * Created by Messias on 28/04/2017.
  */
 
-@Table
-public class Entrevistado extends SugarRecord {
+public class Entrevistado implements Serializable{
 
+    private long id_entrevistado;
     private String nome;
+    private String sexo;
+    private int idade;
+    private ArrayList<Questionario> questionarios;
 
-    private Sexo sexo;
+    public long getId_entrevistado() {
+        return id_entrevistado;
+    }
 
-    public Entrevistado(){}
-
-    public Entrevistado(String nome, Sexo sexo){
-        this.nome = nome;
-        this.sexo = sexo;
+    public void setId_entrevistado(long id_entrevistado) {
+        this.id_entrevistado = id_entrevistado;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Sexo getSexo() {
-        return sexo;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setSexo(Sexo sexo) {
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public ArrayList<Questionario> getQuestionarios() {
+        return questionarios;
+    }
+
+    public void setQuestionarios(ArrayList<Questionario> questionarios) {
+        this.questionarios = questionarios;
+    }
+
 }
