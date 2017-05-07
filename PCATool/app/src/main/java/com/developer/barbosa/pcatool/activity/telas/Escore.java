@@ -1,5 +1,6 @@
 package com.developer.barbosa.pcatool.activity.telas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 public class Escore extends AppCompatActivity {
 
-    private Button btnCadastrar, btnExibir;
+    private Button btnCadastrar, btnExibir, btnVoltarIinicio;
 
     private Questionario questionario;
 
@@ -82,11 +83,27 @@ public class Escore extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(Escore.this, "Numero de Questionarios: " + questionarioDAO.getAll().size(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Escore.this, "NUMERO DE QUESTIONARIOS: " + questionarioDAO.getAll().size(), Toast.LENGTH_LONG).show();
 
-                teste2();
-                teste3();
                 teste1();
+                // teste2();
+                // teste3();
+
+
+            }
+        });
+
+        this.btnVoltarIinicio = (Button) findViewById(R.id.btnVoltarInicio);
+        this.btnVoltarIinicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), Cadastro.class);
+                // Voltando para a Activity de Cadastro dizendo que todas as outras Activities que estão
+                // em cima dela na pilha de execução deverão ser finalizadas
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("START", true);
+                startActivity(intent);
 
             }
         });
@@ -95,23 +112,27 @@ public class Escore extends AppCompatActivity {
     public void teste1() {
         ArrayList<Entrevistado> entrevistados = entrevistadoDAO.getAll();
 
-        System.out.println("--------- ENTREVISTADOS E QUESTIONARIOS ---------\n\n");
-
         for (Entrevistado e : entrevistados) {
-            System.out.println("\n\n\n ------------------------------------------------------------ \n\n\n");
-            String sqlQuery2 = "SELECT questionario.* FROM questionario" +
-                    " WHERE id_entrevistado = " + e.getId_entrevistado();
-            ArrayList<Questionario> questionariosEntrevistado = questionarioDAO.findByQuery(sqlQuery2);
-            System.out.println("Número de Questionarios do Entrevistado " + e.getNome() + " = " + questionariosEntrevistado.size());
-            System.out.println("Lista de Questionarios do Entrevistado de ID (" + e.getId_entrevistado() + "):");
-            for (Questionario q : questionariosEntrevistado) {
-                System.out.println("ID = " + q.getId_questionario() + " DATA = " + q.getDataRealizacao() + " TIPO = " + q.getTipoQuestionario() +
-                        " EE = " + q.getEscoreEssencial() + " EG = " + q.getEscoreGeral());
 
-                String sqlQuery4 = "SELECT componente.* FROM componente" +
-                        " WHERE id_questionario = " + q.getId_questionario();
-                System.out.println("Escores dos Componentes do Questionario: ");
-                ArrayList<Componente> componentesQuestionario = componenteDAO.findByQuery(sqlQuery4);
+            System.out.println("\n\n\n ------------------------------------------------------------ \n\n\n");
+
+            System.out.println("ENTREVISTADO = " + e.getNome() );
+
+            String sqlQuery1 = "SELECT questionario.* FROM questionario WHERE id_entrevistado = " + e.getId_entrevistado();
+            ArrayList<Questionario> questionariosEntrevistado = questionarioDAO.findByQuery(sqlQuery1);
+
+            System.out.println("QUESTIONARIO: ");
+
+            for (Questionario q : questionariosEntrevistado) {
+
+                System.out.println("ID = " + q.getId_questionario() + " DATA = " + q.getDataRealizacao() + " TIPO = " + q.getTipoQuestionario() + "\n" +
+                        "EE = " + q.getEscoreEssencial() + " EG = " + q.getEscoreGeral());
+
+                System.out.println("COMPONENTES DO QUESTIONARIO: ");
+
+                String sqlQuery2 = "SELECT componente.* FROM componente WHERE id_questionario = " + q.getId_questionario();
+                ArrayList<Componente> componentesQuestionario = componenteDAO.findByQuery(sqlQuery2);
+
                 for(Componente p : componentesQuestionario){
                     System.out.println("COMPONENTE = " + p.getLetraComponente() + " ESCORE = " + p.getEscoreComponente());
                 }
@@ -123,12 +144,10 @@ public class Escore extends AppCompatActivity {
                             System.out.println("NUMERO DA QUESTAO = " + r.getNumeroQuestao() + " OPCAO = " + r.getOpcao() + " NOME PROFISSIONAL OU SERVICO = " + r.getNomeProfServ() +
                                     " ENDERECO = " + r.getEndereco());
                         }*/
-
             }
 
         }
 
-        System.out.println("\n\n ------------------------------------------------------------ \n\n");
     }
 
     public void teste2() {
