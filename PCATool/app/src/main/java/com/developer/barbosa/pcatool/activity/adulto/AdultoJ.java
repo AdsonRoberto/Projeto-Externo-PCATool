@@ -9,7 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.activity.Escore;
+import com.developer.barbosa.pcatool.activity.telas.Escore;
 import com.developer.barbosa.pcatool.model.Componente;
 import com.developer.barbosa.pcatool.model.Questionario;
 import com.developer.barbosa.pcatool.model.Resposta;

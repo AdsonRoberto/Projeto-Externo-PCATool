@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.activity.Escore;
+import com.developer.barbosa.pcatool.activity.telas.Escore;
 
 public class ProfissionalH extends AppCompatActivity {
 

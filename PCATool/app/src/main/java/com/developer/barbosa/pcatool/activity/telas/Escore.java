@@ -1,4 +1,4 @@
-package com.developer.barbosa.pcatool.activity;
+package com.developer.barbosa.pcatool.activity.telas;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
