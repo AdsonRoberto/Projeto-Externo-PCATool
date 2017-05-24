@@ -1,28 +1,36 @@
 package com.developer.barbosa.pcatool.activity.adulto;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.interfaces.ReplaceQuestions;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
-public class AdultoI extends AppCompatActivity {
+public class AdultoI extends AppCompatActivity implements ReplaceQuestions{
 
-    private Button btnProximo;
+    private FloatingActionButton fltProximo;
 
     private RadioGroup rdgRespI1A, rdgRespI2A, rdgRespI3A;
+    private TextView txtDescricao1IA;
 
     private Questionario questionario;
+
+    private static String NOME_MEDICO_SERVICO_DEFINIDO = "nome do serviço de saúde / ou nome médico/enfermeiro";
 
     private Resposta resposta1, resposta2, resposta3;
 
@@ -33,14 +41,22 @@ public class AdultoI extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adulto_i);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximo = (Button) findViewById(R.id.btnProximo);
+        this.NOME_MEDICO_SERVICO_DEFINIDO = this.questionario.getRespostas().get(4).getNomeProfServ();
+
+        fltProximo = (FloatingActionButton) findViewById(R.id.fltProximo);
         rdgRespI1A = (RadioGroup) findViewById(R.id.rdgRespI1A);
         rdgRespI2A = (RadioGroup) findViewById(R.id.rdgRespI2A);
         rdgRespI3A = (RadioGroup) findViewById(R.id.rdgRespI3A);
+        txtDescricao1IA = (TextView) findViewById(R.id.txtDescricao1IA);
 
-        btnProximo.setOnClickListener(new View.OnClickListener() {
+        this.replaceQuestionsAdulto();
+
+        fltProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -104,16 +120,35 @@ public class AdultoI extends AppCompatActivity {
                 }
                 resposta3.setNumeroQuestao("A-I3");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 84) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("A-I1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-I2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-I3"))
+                            respostas.set(i, resposta3);
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("A-I");
                 calcularEscoreComponente();
                 componente.setEscoreComponente(escoreComponente);
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 9){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("A-I"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(AdultoI.this, "Escore do Componente I = " + escoreComponente, Toast.LENGTH_SHORT).show();
 
@@ -196,4 +231,8 @@ public class AdultoI extends AppCompatActivity {
 
     }
 
+    @Override
+    public void replaceQuestionsAdulto() {
+        txtDescricao1IA.setText( txtDescricao1IA.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+    }
 }

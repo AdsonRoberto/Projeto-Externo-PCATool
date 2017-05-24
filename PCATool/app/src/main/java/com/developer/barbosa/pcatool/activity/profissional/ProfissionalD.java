@@ -1,24 +1,27 @@
 package com.developer.barbosa.pcatool.activity.profissional;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class ProfissionalD extends AppCompatActivity {
 
-    private Button btnProximoP;
+    private FloatingActionButton fltProximoP;
 
     private RadioGroup rdgRespD1P, rdgRespD2P, rdgRespD3P;
     private Resposta resposta1, resposta2, resposta3;
@@ -32,14 +35,17 @@ public class ProfissionalD extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_d);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        fltProximoP = (FloatingActionButton) findViewById(R.id.fltProximoP);
         rdgRespD1P = (RadioGroup) findViewById(R.id.rdgRespD1P);
         rdgRespD2P = (RadioGroup) findViewById(R.id.rdgRespD2P);
         rdgRespD3P = (RadioGroup) findViewById(R.id.rdgRespD3P);
 
-        btnProximoP.setOnClickListener(new View.OnClickListener() {
+        fltProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -103,18 +109,37 @@ public class ProfissionalD extends AppCompatActivity {
                 }
                 resposta3.setNumeroQuestao("P-D3");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 31) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("P-D1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-D2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-D3"))
+                            respostas.set(i, resposta3);                        
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);                    
+                }                
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("P-D");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 4){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("P-D"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(ProfissionalD.this, "Escore do Componente D = " + escoreComponente, Toast.LENGTH_SHORT).show();
-
+                
                 Intent intent = new Intent(getApplicationContext(),ProfissionalE.class);
                 intent.putExtra("questionario", questionario);
                 startActivity(intent);
@@ -133,7 +158,7 @@ public class ProfissionalD extends AppCompatActivity {
         }
         if (resposta3.getOpcao() == 0 || resposta3.getOpcao() == 5){
             numeroDeRespostasBrancasOuNaoSei++;
-        }
+        }        
 
         return (numeroDeRespostasBrancasOuNaoSei/3 < 0.5);
     }
@@ -155,7 +180,7 @@ public class ProfissionalD extends AppCompatActivity {
             somatorioDosItens += (5 - resposta3.getOpcao());
         } else {
             somatorioDosItens += 2;
-        }
+        }        
 
         return somatorioDosItens;
     }
@@ -180,5 +205,5 @@ public class ProfissionalD extends AppCompatActivity {
         return this.escoreComponente;
 
     }
-
+    
 }

@@ -1,31 +1,39 @@
 package com.developer.barbosa.pcatool.activity.adulto;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.interfaces.ReplaceQuestions;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
-public class AdultoG extends AppCompatActivity {
+public class AdultoG extends AppCompatActivity implements ReplaceQuestions{
 
-    private Button btnProximo;
+    private FloatingActionButton fltProximo;
 
     private RadioGroup rdgRespG1A, rdgRespG2A, rdgRespG3A, rdgRespG4A, rdgRespG5A, rdgRespG6A, rdgRespG7A,
             rdgRespG8A, rdgRespG9A, rdgRespG10A, rdgRespG11A, rdgRespG12A, rdgRespG13A, rdgRespG14A,
             rdgRespG15A, rdgRespG16A, rdgRespG17A, rdgRespG18A, rdgRespG19A, rdgRespG20A, rdgRespG21A,
             rdgRespG22A;
+    private TextView txtDescricao2GA, txtDescricao3GA;
 
     private Questionario questionario;
+
+    private static String NOME_MEDICO_SERVICO_DEFINIDO = "nome do serviço de saúde / ou nome médico/enfermeiro";
 
     private Resposta resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8,
             resposta9, resposta10, resposta11, resposta12, resposta13, resposta14, resposta15, resposta16,
@@ -38,9 +46,14 @@ public class AdultoG extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adulto_g);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximo = (Button) findViewById(R.id.btnProximo);
+        this.NOME_MEDICO_SERVICO_DEFINIDO = this.questionario.getRespostas().get(4).getNomeProfServ();
+
+        fltProximo = (FloatingActionButton) findViewById(R.id.fltProximo);
         rdgRespG1A = (RadioGroup) findViewById(R.id.rdgRespG1A);
         rdgRespG2A = (RadioGroup) findViewById(R.id.rdgRespG2A);
         rdgRespG3A = (RadioGroup) findViewById(R.id.rdgRespG3A);
@@ -63,8 +76,12 @@ public class AdultoG extends AppCompatActivity {
         rdgRespG20A = (RadioGroup) findViewById(R.id.rdgRespG20A);
         rdgRespG21A = (RadioGroup) findViewById(R.id.rdgRespG21A);
         rdgRespG22A = (RadioGroup) findViewById(R.id.rdgRespG22A);
+        txtDescricao2GA = (TextView) findViewById(R.id.txtDescricao2GA);
+        txtDescricao3GA = (TextView) findViewById(R.id.txtDescricao3GA);
 
-        btnProximo.setOnClickListener(new View.OnClickListener() {
+        this.replaceQuestionsAdulto();
+
+        fltProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -508,35 +525,92 @@ public class AdultoG extends AppCompatActivity {
                 }
                 resposta22.setNumeroQuestao("A-G22");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
-                questionario.getRespostas().add(resposta7);
-                questionario.getRespostas().add(resposta8);
-                questionario.getRespostas().add(resposta9);
-                questionario.getRespostas().add(resposta10);
-                questionario.getRespostas().add(resposta11);
-                questionario.getRespostas().add(resposta12);
-                questionario.getRespostas().add(resposta13);
-                questionario.getRespostas().add(resposta14);
-                questionario.getRespostas().add(resposta15);
-                questionario.getRespostas().add(resposta16);
-                questionario.getRespostas().add(resposta17);
-                questionario.getRespostas().add(resposta18);
-                questionario.getRespostas().add(resposta19);
-                questionario.getRespostas().add(resposta20);
-                questionario.getRespostas().add(resposta21);
-                questionario.getRespostas().add(resposta22);
-
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 68) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("A-G1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G6"))
+                            respostas.set(i, resposta6);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G7"))
+                            respostas.set(i, resposta7);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G8"))
+                            respostas.set(i, resposta8);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G9"))
+                            respostas.set(i, resposta9);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G10"))
+                            respostas.set(i, resposta10);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G11"))
+                            respostas.set(i, resposta11);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G12"))
+                            respostas.set(i, resposta12);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G13"))
+                            respostas.set(i, resposta13);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G14"))
+                            respostas.set(i, resposta14);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G15"))
+                            respostas.set(i, resposta15);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G16"))
+                            respostas.set(i, resposta16);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G17"))
+                            respostas.set(i, resposta17);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G18"))
+                            respostas.set(i, resposta18);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G19"))
+                            respostas.set(i, resposta19);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G20"))
+                            respostas.set(i, resposta20);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G21"))
+                            respostas.set(i, resposta21);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-G22"))
+                            respostas.set(i, resposta22);                        
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                    questionario.getRespostas().add(resposta7);
+                    questionario.getRespostas().add(resposta8);
+                    questionario.getRespostas().add(resposta9);
+                    questionario.getRespostas().add(resposta10);
+                    questionario.getRespostas().add(resposta11);
+                    questionario.getRespostas().add(resposta12);
+                    questionario.getRespostas().add(resposta13);
+                    questionario.getRespostas().add(resposta14);
+                    questionario.getRespostas().add(resposta15);
+                    questionario.getRespostas().add(resposta16);
+                    questionario.getRespostas().add(resposta17);
+                    questionario.getRespostas().add(resposta18);
+                    questionario.getRespostas().add(resposta19);
+                    questionario.getRespostas().add(resposta20);
+                    questionario.getRespostas().add(resposta21);
+                    questionario.getRespostas().add(resposta22);
+                }
+                
                 Componente componente = new Componente();
                 componente.setLetraComponente("A-G");
                 calcularEscoreComponente();
                 componente.setEscoreComponente(escoreComponente);
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 7){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("A-G"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(AdultoG.this, "Escore do Componente G = " + escoreComponente, Toast.LENGTH_SHORT).show();
 
@@ -771,4 +845,9 @@ public class AdultoG extends AppCompatActivity {
 
     }
 
+    @Override
+    public void replaceQuestionsAdulto() {
+        txtDescricao2GA.setText( txtDescricao2GA.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtDescricao3GA.setText( txtDescricao3GA.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+    }
 }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_adulto_i"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryVerdeClaro"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -278,12 +280,19 @@
             </TableRow>
         </TableLayout>
 
-        <Button
-            android:id="@+id/btnProximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/Prosseguir" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fltProximo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimaryVerdeEscuro"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/seta_avancar" />
+
     </LinearLayout>
 
 </ScrollView>

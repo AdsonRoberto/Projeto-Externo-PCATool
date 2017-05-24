@@ -1,24 +1,27 @@
 package com.developer.barbosa.pcatool.activity.profissional;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class ProfissionalG extends AppCompatActivity {
 
-    private Button btnProximoP;
+    private FloatingActionButton fltProximoP;
 
     private RadioGroup rdgRespG1P, rdgRespG2P, rdgRespG3P;
     private Resposta resposta1, resposta2, resposta3;
@@ -32,14 +35,17 @@ public class ProfissionalG extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_g);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        fltProximoP = (FloatingActionButton) findViewById(R.id.fltProximoP);
         rdgRespG1P = (RadioGroup) findViewById(R.id.rdgRespG1P);
         rdgRespG2P = (RadioGroup) findViewById(R.id.rdgRespG2P);
         rdgRespG3P = (RadioGroup) findViewById(R.id.rdgRespG3P);
 
-        btnProximoP.setOnClickListener(new View.OnClickListener() {
+        fltProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -103,15 +109,34 @@ public class ProfissionalG extends AppCompatActivity {
                 }
                 resposta3.setNumeroQuestao("P-G3");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 72) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("P-G1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-G2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-G3"))
+                            respostas.set(i, resposta3);
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("P-G");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 7){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("P-G"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(ProfissionalG.this, "Escore do Componente G = " + escoreComponente, Toast.LENGTH_SHORT).show();
 

@@ -1,52 +1,65 @@
 package com.developer.barbosa.pcatool.activity.telas;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Entrevistado;
-import com.developer.barbosa.pcatool.model.PostoDAO;
-import com.developer.barbosa.pcatool.model.RegionalDAO;
+import com.developer.barbosa.pcatool.model.domain.Entrevistado;
 
 public class Cadastro extends AppCompatActivity {
 
     private EditText nome, idade;
     private Spinner sexo;
-    private Button comecar;
-
-    private RegionalDAO regionalDAO;
-    private PostoDAO postoDAO;
+    private FloatingActionButton fltComecar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        cadastrarRegionaisPostos();
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
 
         this.nome = (EditText) findViewById(R.id.txtNome);
         this.idade = (EditText) findViewById(R.id.txtIdade);
         this.sexo = (Spinner) findViewById(R.id.spnSexo);
 
-        this.comecar = (Button) findViewById(R.id.btnComecar);
+        this.fltComecar = (FloatingActionButton) findViewById(R.id.fltComecar);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.array_sexo,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_sexo, R.layout.spinner_item_pattern);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.sexo.setAdapter(adapter);
 
-        this.comecar.setOnClickListener(new View.OnClickListener() {
+        this.fltComecar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String nomeEntrevistado = nome.getText().toString();
                 String sexoEntrevistado = sexo.getSelectedItem().toString();
-                int idadeEntrevistado = Integer.parseInt(idade.getText().toString());
+                String idadeEntrevistadoText = idade.getText().toString();
+
+                if(nomeEntrevistado.equals("") || idadeEntrevistadoText.equals("")){
+                    Toast.makeText(Cadastro.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int idadeEntrevistado = 0;
+                try {
+                    idadeEntrevistado = Integer.parseInt(idadeEntrevistadoText);
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(Cadastro.this, "Informe a idade do entrevistado(a)", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Instanciando um entrevistado e sem questionario. Mas sem cadastrar no banco de dados ainda.
                 Entrevistado entrevistado = new Entrevistado();
@@ -64,13 +77,6 @@ public class Cadastro extends AppCompatActivity {
             }
         });
 
-    }
-
-    public void cadastrarRegionaisPostos(){
-        this.regionalDAO = new RegionalDAO(this);
-        this.postoDAO = new PostoDAO(this);
-        regionalDAO.createRegionais();
-        postoDAO.createPostos();
     }
 
 }

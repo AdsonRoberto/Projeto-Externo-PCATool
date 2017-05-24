@@ -1,0 +1,134 @@
+package com.developer.barbosa.pcatool.model.dao;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.developer.barbosa.pcatool.model.domain.Entrevistado;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Messias on 28/04/2017.
+ */
+
+public class EntrevistadoDAO extends BDOpenHelper {
+
+    Context context;
+
+    public EntrevistadoDAO(Context context) {
+        super(context);
+        this.context = context;
+    }
+
+    public long insertEntrevistado(Entrevistado entrevistado){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        // ID Entrevistado é Auto Incremento
+        values.put(BDOpenHelper.NOME_ENTREVISTADO, entrevistado.getNome());
+        values.put(BDOpenHelper.SEXO_ENTREVISTADO, entrevistado.getSexo());
+        values.put(BDOpenHelper.IDADE_ENTREVISTADO, entrevistado.getIdade());
+
+        long id = db.insert(BDOpenHelper.TABELA_ENTREVISTADO, null, values);
+        db.close();
+
+        return id;
+    }
+
+    public Entrevistado getEntrevistadoById(long id){
+        String sql = "SELECT entrevistado.* FROM entrevistado" +
+                " WHERE entrevistado.id_entrevistado = " + id;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        Entrevistado entrevistado = null;
+
+        if (cursor.moveToFirst()) {
+            entrevistado = this.cursorToEntrevistado(cursor);
+        }
+        db.close();
+
+        return entrevistado;
+    }
+
+    /*
+        Um entrevistado já está cadastrado se ele tiver o mesmo nome e a mesma idade
+     */
+    public boolean entrevistadoJaCadastrado(Entrevistado entrevistado){
+        String sql = "SELECT entrevistado.* FROM entrevistado" +
+                " WHERE entrevistado.nome_entrevistado LIKE '" + entrevistado.getNome() + "'" +
+                " AND entrevistado.idade_entrevistado = " + entrevistado.getIdade();
+
+        ArrayList<Entrevistado> entrevistados = this.findByQuery(sql);
+
+        return entrevistados.size() != 0;
+    }
+
+    public ArrayList<Entrevistado> getAll() {
+        String sql = "SELECT entrevistado.* FROM entrevistado";
+        return findByQuery(sql);
+    }
+
+    private Entrevistado cursorToEntrevistado(Cursor cursor) {
+        Entrevistado entrevistado = new Entrevistado();
+        entrevistado.setId_entrevistado(cursor.getLong(cursor.getColumnIndex("id_entrevistado")));
+        entrevistado.setNome(cursor.getString(cursor.getColumnIndex("nome_entrevistado")));
+        entrevistado.setSexo(cursor.getString(cursor.getColumnIndex("sexo_entrevistado")));
+        entrevistado.setIdade(cursor.getInt(cursor.getColumnIndex("idade_entrevistado")));
+
+        return entrevistado;
+    }
+
+    public ArrayList<Entrevistado> findByQuery(String sql) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        ArrayList<Entrevistado> list = new ArrayList<Entrevistado>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                Entrevistado obj = this.cursorToEntrevistado(cursor);
+                list.add(obj);
+            } while(cursor.moveToNext());
+        }
+        db.close();
+
+        return list;
+    }
+
+    public ArrayList<Resposta> getRespostasFromEntrevistadoById(int id){
+        String sql = "SELECT resposta.* FROM entrevistado " +
+                " JOIN questionario ON questionario.id_entrevistado = entrevistado.id_entrevistado" +
+                " JOIN resposta ON resposta.id_questionario = questionario.id_questionario" +
+                " WHERE questionario.id_entrevistado = " + id;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        ArrayList<Resposta> list = new ArrayList<Resposta>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                Resposta obj = new Resposta();
+                obj.setId_resposta(cursor.getLong(cursor.getColumnIndex("id_resposta")));
+                obj.setNumeroQuestao(cursor.getString(cursor.getColumnIndex("numero_questao")));
+                obj.setOpcao(cursor.getInt(cursor.getColumnIndex("opcao_resposta")));
+
+                obj.setNomeProfServ(cursor.getString(cursor.getColumnIndex("nome_profissional_servico")));
+                //obj.setNomeMedServUlt(cursor.getString(cursor.getColumnIndex("nome_medico_servico_ult")));
+                obj.setEndereco(cursor.getString(cursor.getColumnIndex("endereco_resposta")));
+                //obj.setNomeMedServDef(cursor.getString(cursor.getColumnIndex("nome_medico_servico_def")));
+
+                list.add(obj);
+            } while(cursor.moveToNext());
+        }
+        db.close();
+
+        return list;
+
+    }
+
+}

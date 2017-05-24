@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_adulto_a"
     android:layout_width="match_parent"
@@ -8,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimaryVerdeClaro"
     tools:context="com.developer.barbosa.pcatool.activity.adulto.AdultoA">
 
     <LinearLayout
@@ -60,7 +62,10 @@
         <EditText
             android:id="@+id/edtRespA1ANomeProfServ"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -69,7 +74,10 @@
         <EditText
             android:id="@+id/edtRespA1AEnd"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapWords|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtQuestaoA2A"
@@ -113,7 +121,10 @@
         <EditText
             android:id="@+id/edtRespA2ANomeProfServ"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -122,7 +133,10 @@
         <EditText
             android:id="@+id/edtRespA2AEnd"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapWords|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtQuestaoA3A"
@@ -180,7 +194,10 @@
         <EditText
             android:id="@+id/edtRespA3ANomeProfServ"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapWords|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -189,7 +206,10 @@
         <EditText
             android:id="@+id/edtRespA3AEnd"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtDescricao1AA"
@@ -225,7 +245,10 @@
         <EditText
             android:id="@+id/edtRespA4ANomeMedServUlt"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapWords|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -267,14 +290,22 @@
         <EditText
             android:id="@+id/edtRespA5ANomeMedServ"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            android:inputType="text|textCapCharacters|textCapSentences"
+            android:textColor="@color/colorPrimaryVerdeEscuro"
+            android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btnProximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/Prosseguir" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fltProximo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimaryVerdeEscuro"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/seta_avancar" />
 
     </LinearLayout>
 

@@ -1,24 +1,27 @@
 package com.developer.barbosa.pcatool.activity.profissional;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class ProfissionalE extends AppCompatActivity {
 
-    private Button btnProximoP;
+    private FloatingActionButton fltProximoP;
     private RadioGroup rdgRespE1P, rdgRespE2P, rdgRespE3P, rdgRespE4P, rdgRespE5P, rdgRespE6P,
             rdgRespE7P, rdgRespE8P, rdgRespE9P, rdgRespE10P, rdgRespE11P, rdgRespE12P, rdgRespE13P, rdgRespE14P, rdgRespE15P,
             rdgRespE16P, rdgRespE17P, rdgRespE18P, rdgRespE19P, rdgRespE20P, rdgRespE21P, rdgRespE22P;
@@ -35,9 +38,12 @@ public class ProfissionalE extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_e);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        fltProximoP = (FloatingActionButton) findViewById(R.id.fltProximoP);
         rdgRespE1P = (RadioGroup) findViewById(R.id.rdgRespE1P);
         rdgRespE2P = (RadioGroup) findViewById(R.id.rdgRespE2P);
         rdgRespE3P = (RadioGroup) findViewById(R.id.rdgRespE3P);
@@ -61,7 +67,7 @@ public class ProfissionalE extends AppCompatActivity {
         rdgRespE21P = (RadioGroup) findViewById(R.id.rdgRespE21P);
         rdgRespE22P = (RadioGroup) findViewById(R.id.rdgRespE22P);
 
-        btnProximoP.setOnClickListener(new View.OnClickListener() {
+        fltProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -444,7 +450,7 @@ public class ProfissionalE extends AppCompatActivity {
                         break;
                 }
                 resposta19.setNumeroQuestao("P-E19");
-
+                
                 resposta20 = new Resposta();
                 switch (rdgRespE20P.getCheckedRadioButtonId()){
                     case R.id.rdoE204P:
@@ -505,34 +511,91 @@ public class ProfissionalE extends AppCompatActivity {
                 }
                 resposta22.setNumeroQuestao("P-E22");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
-                questionario.getRespostas().add(resposta7);
-                questionario.getRespostas().add(resposta8);
-                questionario.getRespostas().add(resposta9);
-                questionario.getRespostas().add(resposta10);
-                questionario.getRespostas().add(resposta11);
-                questionario.getRespostas().add(resposta12);
-                questionario.getRespostas().add(resposta13);
-                questionario.getRespostas().add(resposta14);
-                questionario.getRespostas().add(resposta15);
-                questionario.getRespostas().add(resposta16);
-                questionario.getRespostas().add(resposta17);
-                questionario.getRespostas().add(resposta18);
-                questionario.getRespostas().add(resposta19);
-                questionario.getRespostas().add(resposta20);
-                questionario.getRespostas().add(resposta21);
-                questionario.getRespostas().add(resposta22);
-
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 53) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("P-E1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E6"))
+                            respostas.set(i, resposta6);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E7"))
+                            respostas.set(i, resposta7);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E8"))
+                            respostas.set(i, resposta8);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E9"))
+                            respostas.set(i, resposta9);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E10"))
+                            respostas.set(i, resposta10);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E11"))
+                            respostas.set(i, resposta11);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E12"))
+                            respostas.set(i, resposta12);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E13"))
+                            respostas.set(i, resposta13);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E14"))
+                            respostas.set(i, resposta14);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E15"))
+                            respostas.set(i, resposta15);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E16"))
+                            respostas.set(i, resposta16);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E17"))
+                            respostas.set(i, resposta17);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E18"))
+                            respostas.set(i, resposta18);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E19"))
+                            respostas.set(i, resposta19);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E20"))
+                            respostas.set(i, resposta20);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E21"))
+                            respostas.set(i, resposta21);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-E22"))
+                            respostas.set(i, resposta22);
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                    questionario.getRespostas().add(resposta7);
+                    questionario.getRespostas().add(resposta8);
+                    questionario.getRespostas().add(resposta9);
+                    questionario.getRespostas().add(resposta10);
+                    questionario.getRespostas().add(resposta11);
+                    questionario.getRespostas().add(resposta12);
+                    questionario.getRespostas().add(resposta13);
+                    questionario.getRespostas().add(resposta14);
+                    questionario.getRespostas().add(resposta15);
+                    questionario.getRespostas().add(resposta16);
+                    questionario.getRespostas().add(resposta17);
+                    questionario.getRespostas().add(resposta18);
+                    questionario.getRespostas().add(resposta19);
+                    questionario.getRespostas().add(resposta20);
+                    questionario.getRespostas().add(resposta21);
+                    questionario.getRespostas().add(resposta22);
+                }
+                
                 Componente componente = new Componente();
                 componente.setLetraComponente("P-E");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 5){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("P-E"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(ProfissionalE.this, "Escore do Componente E = " + escoreComponente, Toast.LENGTH_SHORT).show();
 

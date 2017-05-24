@@ -1,24 +1,27 @@
 package com.developer.barbosa.pcatool.activity.profissional;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class ProfissionalF extends AppCompatActivity {
 
-    private Button btnProximoP;
+    private FloatingActionButton fltProximoP;
     private RadioGroup rdgRespPergunta1FP, rdgRespF1P, rdgRespF2P, rdgRespF3P, rdgRespF4P, rdgRespF5P, rdgRespF6P,
             rdgRespF7P, rdgRespF8P, rdgRespF9P, rdgRespF10P, rdgRespF11P, rdgRespF12P, rdgRespF13P, rdgRespF14P, rdgRespF15P;
     private Resposta respostaPergunta0, resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9,
@@ -33,9 +36,12 @@ public class ProfissionalF extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_f);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        fltProximoP = (FloatingActionButton) findViewById(R.id.fltProximoP);
         rdgRespPergunta1FP = (RadioGroup) findViewById(R.id.rdgRespPergunta1FP);
         rdgRespF1P = (RadioGroup) findViewById(R.id.rdgRespF1P);
         rdgRespF2P = (RadioGroup) findViewById(R.id.rdgRespF2P);
@@ -53,8 +59,7 @@ public class ProfissionalF extends AppCompatActivity {
         rdgRespF14P = (RadioGroup) findViewById(R.id.rdgRespF14P);
         rdgRespF15P = (RadioGroup) findViewById(R.id.rdgRespF15P);
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
-        btnProximoP.setOnClickListener(new View.OnClickListener() {
+        fltProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -372,28 +377,73 @@ public class ProfissionalF extends AppCompatActivity {
                 }
                 resposta15.setNumeroQuestao("P-F15");
 
-                questionario.getRespostas().add(respostaPergunta0);
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
-                questionario.getRespostas().add(resposta7);
-                questionario.getRespostas().add(resposta8);
-                questionario.getRespostas().add(resposta9);
-                questionario.getRespostas().add(resposta10);
-                questionario.getRespostas().add(resposta11);
-                questionario.getRespostas().add(resposta12);
-                questionario.getRespostas().add(resposta13);
-                questionario.getRespostas().add(resposta14);
-                questionario.getRespostas().add(resposta15);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 69) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("P-F0"))
+                            respostas.set(i, respostaPergunta0);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F6"))
+                            respostas.set(i, resposta6);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F7"))
+                            respostas.set(i, resposta7);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F8"))
+                            respostas.set(i, resposta8);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F9"))
+                            respostas.set(i, resposta9);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F10"))
+                            respostas.set(i, resposta10);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F11"))
+                            respostas.set(i, resposta11);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F12"))
+                            respostas.set(i, resposta12);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F13"))
+                            respostas.set(i, resposta13);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F14"))
+                            respostas.set(i, resposta14);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-F15"))
+                            respostas.set(i, resposta15);                        
+                    }
+                } else {
+                    questionario.getRespostas().add(respostaPergunta0);
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                    questionario.getRespostas().add(resposta7);
+                    questionario.getRespostas().add(resposta8);
+                    questionario.getRespostas().add(resposta9);
+                    questionario.getRespostas().add(resposta10);
+                    questionario.getRespostas().add(resposta11);
+                    questionario.getRespostas().add(resposta12);
+                    questionario.getRespostas().add(resposta13);
+                    questionario.getRespostas().add(resposta14);
+                    questionario.getRespostas().add(resposta15);                    
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("P-F");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 6){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("P-F"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(ProfissionalF.this, "Escore do Componente F = " + escoreComponente, Toast.LENGTH_SHORT).show();
 

@@ -1,26 +1,31 @@
 package com.developer.barbosa.pcatool.activity.telas;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
 import com.developer.barbosa.pcatool.activity.adulto.AdultoA;
 import com.developer.barbosa.pcatool.activity.profissional.ProfissionalA;
-import com.developer.barbosa.pcatool.model.Entrevistado;
-import com.developer.barbosa.pcatool.model.Posto;
-import com.developer.barbosa.pcatool.model.PostoDAO;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Regional;
-import com.developer.barbosa.pcatool.model.RegionalDAO;
+import com.developer.barbosa.pcatool.model.dao.RegionalDAO;
+import com.developer.barbosa.pcatool.model.domain.Entrevistado;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Regional;
+import com.developer.barbosa.pcatool.util.Mascara;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ModuloQuestionario extends AppCompatActivity {
 
@@ -28,87 +33,80 @@ public class ModuloQuestionario extends AppCompatActivity {
 
     private EditText dataRealização;
     private Spinner spnRegional;
-    private Spinner spnPosto;
-    private Button btnAdulto, btnProfissional;
+    private Spinner spnTipoQuestionario;
+    private FloatingActionButton fltAvancarModuloQuestionario;
 
     private RegionalDAO regionalDAO;
-    private PostoDAO postoDAO;
 
     private ArrayList<Regional> regionais;
-    private ArrayList<Posto> postos;
 
     private Regional regionalSelecionadaAux;
-    private Posto postoSelecionadoAux;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modulo_questionario);
 
-        this.btnAdulto = (Button) findViewById(R.id.btnAdulto);
-        this.btnProfissional = (Button) findViewById(R.id.btnProfissional);
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
+        this.fltAvancarModuloQuestionario = (FloatingActionButton) findViewById(R.id.fltAvancarModuloQuestionario);
         this.dataRealização = (EditText) findViewById(R.id.txtDataRealizacao);
         this.spnRegional = (Spinner) findViewById(R.id.spnRegional);
-        this.spnPosto = (Spinner) findViewById(R.id.spnPosto);
+        this.spnTipoQuestionario = (Spinner) findViewById(R.id.spnTipoQuestionario);
 
         this.entrevistado = (Entrevistado) getIntent().getSerializableExtra("entrevistado");
 
         this.regionalDAO = new RegionalDAO(this);
-        this.postoDAO = new PostoDAO(this);
 
         ArrayAdapter<String> adapterSpinnerRegional = new ArrayAdapter<>(ModuloQuestionario.this,
-                android.R.layout.simple_spinner_item, this.getRegionaisString());
+                R.layout.spinner_item_pattern, this.getRegionaisString());
         adapterSpinnerRegional.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.spnRegional.setAdapter(adapterSpinnerRegional);
 
-        this.btnAdulto.setOnClickListener(this.onClickListenerBtnAdulto);
-        this.btnProfissional.setOnClickListener(this.onClickListenerBtnProfissional);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_tipo_questionario, R.layout.spinner_item_pattern);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        this.spnTipoQuestionario.setAdapter(adapter);
+
+        this.fltAvancarModuloQuestionario.setOnClickListener(this.onClickListenerFltAvancarModuloQuestionario);
         this.spnRegional.setOnItemSelectedListener(this.onItemSelectedListenerSpnRegional);
-        this.spnPosto.setOnItemSelectedListener(this.onItemSelectedListenerSpnPosto);
+
+        this.dataRealização.addTextChangedListener(Mascara.insert("##/##/####", this.dataRealização));
+        this.dataRealização.setText(this.getDataAtual());
 
     }
 
-    View.OnClickListener onClickListenerBtnAdulto = new View.OnClickListener() {
+    View.OnClickListener onClickListenerFltAvancarModuloQuestionario = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+            String dataRealizacao = dataRealização.getText().toString();
+
+            if(dataRealizacao.equals("")){
+                Toast.makeText(ModuloQuestionario.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Questionario questionario = new Questionario();
 
             questionario.setEntrevistado(entrevistado);
 
-            String dataRealizacao = dataRealização.getText().toString();
-
             questionario.setDataRealizacao(dataRealizacao);
             questionario.setRegional(regionalSelecionadaAux);
-            questionario.setTipoQuestionario("ADULTO");
 
-            System.out.println("Passando o Questionario Adulto para outra Tela");
+            String tipoQuestionario = spnTipoQuestionario.getSelectedItem().toString();
 
-            Intent intent = new Intent(getApplicationContext(), AdultoA.class);
-            intent.putExtra("questionario", questionario);
-            startActivity(intent);
-        }
-    };
+            questionario.setTipoQuestionario(tipoQuestionario);
 
-    View.OnClickListener onClickListenerBtnProfissional = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // Instanciando um questionario e ja colocando o entrevistado nele. Mas sem as respostas ainda
-            // Nenhum dos objetos ate agora foram cadastrados no banco de dados
-            // A ideia eh que isso só aconteça no fim da entrevista
-            Questionario questionario = new Questionario();
-
-            questionario.setEntrevistado(entrevistado);
-
-            String dataRealizacao = dataRealização.getText().toString();
-
-            questionario.setDataRealizacao(dataRealizacao);
-            questionario.setRegional(regionalSelecionadaAux);
-            questionario.setTipoQuestionario("PROFISSIONAL");
-
-            System.out.println("Passando o Questionario Profissional para outra Tela");
-
-            // Enviando o questionario via intent
-            Intent intent = new Intent(getApplicationContext(), ProfissionalA.class);
+            Intent intent = null;
+            switch (tipoQuestionario){
+                case "ADULTO":
+                    intent = new Intent(getApplicationContext(), AdultoA.class);
+                    break;
+                case "PROFISSIONAL":
+                    intent = new Intent(getApplicationContext(), ProfissionalA.class);
+                    break;
+            }
             intent.putExtra("questionario", questionario);
             startActivity(intent);
         }
@@ -120,28 +118,6 @@ public class ModuloQuestionario extends AppCompatActivity {
             int ordemItemSelecionado = i;
 
             regionalSelecionadaAux = regionais.get(ordemItemSelecionado);
-
-            ArrayAdapter<String> adapterSpinnerPosto = new ArrayAdapter<>(ModuloQuestionario.this,
-                    android.R.layout.simple_spinner_item,
-                    getPostosStringByRegional(regionalSelecionadaAux));
-            adapterSpinnerPosto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            spnPosto.setAdapter(adapterSpinnerPosto);
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-    };
-
-    AdapterView.OnItemSelectedListener onItemSelectedListenerSpnPosto = new AdapterView.OnItemSelectedListener() {
-
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            int ordemPostoSelecionadoAux = i;
-
-            postoSelecionadoAux = postos.get(ordemPostoSelecionadoAux);
         }
 
         @Override
@@ -159,14 +135,11 @@ public class ModuloQuestionario extends AppCompatActivity {
         return regionaisString;
     }
 
-    private ArrayList<String> getPostosStringByRegional(Regional regional){
-        ArrayList<String> postosString = new ArrayList<>();
-        String SQL_QUERY = "SELECT posto.* FROM posto WHERE id_regional = " + regional.getId_regional();
-        this.postos = this.postoDAO.findByQuery(SQL_QUERY);
-        for (Posto p : this.postos){
-            postosString.add("NOME: " + p.getNome() + " | ENDEREÇO: " + p.getEndereco());
-        }
-        return postosString;
+    private String getDataAtual(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        String data = dateFormat.format(date);
+        return data;
     }
 
 }

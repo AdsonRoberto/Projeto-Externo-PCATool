@@ -1,8 +1,11 @@
 package com.developer.barbosa.pcatool.activity.adulto;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,16 +13,18 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class AdultoA extends AppCompatActivity {
 
-    private Button btnProximo, btnPreencherAutomaticamente;
+    private FloatingActionButton fltProximo;
+    private Button btnPreencherAutomaticamente;
     private RadioGroup rdgRespA1A, rdgRespA2A, rdgRespA3A;
     private EditText edtRespA1ANomeProfServ, edtRespA1AEnd, edtRespA2ANomeProfServ, edtRespA2AEnd, edtRespA3ANomeProfServ, edtRespA3AEnd,
             edtRespA4ANomeMedServUlt, edtRespA5ANomeMedServ;
@@ -35,9 +40,12 @@ public class AdultoA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adulto_a);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximo = (Button) findViewById(R.id.btnProximo);
+        fltProximo = (FloatingActionButton) findViewById(R.id.fltProximo);
         btnPreencherAutomaticamente = (Button) findViewById(R.id.btnPreencherAutomaticamente);
         rdgRespA1A = (RadioGroup) findViewById(R.id.rdgRespA1A);
         rdgRespA2A = (RadioGroup) findViewById(R.id.rdgRespA2A);
@@ -51,7 +59,7 @@ public class AdultoA extends AppCompatActivity {
         edtRespA4ANomeMedServUlt = (EditText) findViewById(R.id.edtRespA4ANomeMedServUlt);
         edtRespA5ANomeMedServ = (EditText) findViewById(R.id.edtRespA5ANomeMedServ);
 
-        btnProximo.setOnClickListener(new View.OnClickListener() {
+        fltProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -119,17 +127,40 @@ public class AdultoA extends AppCompatActivity {
                 resposta5.setNomeProfServ(edtRespA5ANomeMedServ.getText().toString());
                 resposta5.setNumeroQuestao("A-A5");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 5) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("A-A1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-A2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-A3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-A4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-A5"))
+                            respostas.set(i, resposta5);
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("A-A");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 1){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("A-A"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(AdultoA.this, "Escore do Componente A = " + escoreComponente, Toast.LENGTH_SHORT).show();
 

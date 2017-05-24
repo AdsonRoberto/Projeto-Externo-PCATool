@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/txtId"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:background="@color/colorSecondaryVerdeMedioEscuro"
+        android:gravity="center"
+        android:text="ID:"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="MESSIAS DOMINGOS PINTO DE M. FILHO"
+                android:textColor="@color/colorPrimaryCinzaEscuroTexto"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtRegional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="SECRETARIA REGIONAL I"
+                android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:text="22/05/2017"
+                android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="ADULTO"
+                android:textColor="@color/colorPrimaryCinzaEscuroTexto"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtEscoreE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="E.E = 9.5"
+                android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtEscoreG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="E.G = 9.6"
+                android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

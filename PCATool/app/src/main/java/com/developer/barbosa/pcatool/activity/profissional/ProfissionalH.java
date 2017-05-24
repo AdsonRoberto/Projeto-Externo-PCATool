@@ -1,25 +1,28 @@
 package com.developer.barbosa.pcatool.activity.profissional;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.activity.telas.Escore;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.activity.telas.ConfirmarCadastroActivity;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class ProfissionalH extends AppCompatActivity {
 
-    private Button btnProximoP;
+    private FloatingActionButton fltProximoP;
 
     private RadioGroup rdgRespH1P, rdgRespH2P, rdgRespH3P, rdgRespH4P, rdgRespH5P, rdgRespH6P;
     private Resposta resposta1, resposta2, resposta3, resposta4, resposta5, resposta6;
@@ -33,9 +36,12 @@ public class ProfissionalH extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_h);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        fltProximoP = (FloatingActionButton) findViewById(R.id.fltProximoP);
         rdgRespH1P = (RadioGroup) findViewById(R.id.rdgRespH1P);
         rdgRespH2P = (RadioGroup) findViewById(R.id.rdgRespH2P);
         rdgRespH3P = (RadioGroup) findViewById(R.id.rdgRespH3P);
@@ -43,7 +49,7 @@ public class ProfissionalH extends AppCompatActivity {
         rdgRespH5P = (RadioGroup) findViewById(R.id.rdgRespH5P);
         rdgRespH6P = (RadioGroup) findViewById(R.id.rdgRespH6P);
 
-        btnProximoP.setOnClickListener(new View.OnClickListener() {
+        fltProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -167,22 +173,47 @@ public class ProfissionalH extends AppCompatActivity {
                 }
                 resposta6.setNumeroQuestao("P-H6");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 78) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("P-H1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-H2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-H3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-H4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-H5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-H6"))
+                            respostas.set(i, resposta6);
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("P-H");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 8){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("P-H"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(ProfissionalH.this, "Escore do Componente H = " + escoreComponente, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(),Escore.class);
+                Intent intent = new Intent(getApplicationContext(),ConfirmarCadastroActivity.class);
                 intent.putExtra("questionario", questionario);
                 startActivity(intent);
             }
@@ -271,5 +302,5 @@ public class ProfissionalH extends AppCompatActivity {
         return this.escoreComponente;
 
     }
-
+    
 }

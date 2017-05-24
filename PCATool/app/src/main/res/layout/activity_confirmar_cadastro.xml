@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.developer.barbosa.pcatool.activity.telas.ConfirmarCadastroActivity"
+    android:background="@color/colorPrimaryVerdeClaro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="25dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#4bb6ae"
+                android:elevation="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Informações do Entrevistado(a)"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/txtNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sexo"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtIdade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Idade"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#4bb6ae"
+                android:elevation="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Informações do Questionário"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/txtData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Data"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtRegional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regional"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtTipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tipo"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/opcCadastrarQuestionario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorSecondaryVerdeMedioEscuro"
+                android:elevation="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cadastar Questionário"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Verifique as informações e cadastre o questionário"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/opcCancelarQuestionário"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#4bb6ae"
+                android:elevation="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar Questionário"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cancele a entrevista/questionário e retorne a tela inicial"
+                    android:textColor="@color/colorPrimaryCinzaTextoOpcoes" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,29 +1,37 @@
 package com.developer.barbosa.pcatool.activity.adulto;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.activity.telas.Escore;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.activity.telas.ConfirmarCadastroActivity;
+import com.developer.barbosa.pcatool.interfaces.ReplaceQuestions;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
-public class AdultoJ extends AppCompatActivity {
+public class AdultoJ extends AppCompatActivity implements ReplaceQuestions{
 
-    private Button btnProximo;
+    private FloatingActionButton fltProximo;
 
     private RadioGroup rdgRespJ1A, rdgRespJ2A, rdgRespJ3A, rdgRespJ4A, rdgRespJ5A, rdgRespJ6A;
+    private TextView txtQuestaoJ1A, txtQuestaoJ2A, txtQuestaoJ3A, txtDescricao1JA;
 
     private Questionario questionario;
+
+    private static String NOME_MEDICO_SERVICO_DEFINIDO = "nome do serviço de saúde / ou nome médico/enfermeiro";
 
     private Resposta resposta1, resposta2, resposta3, resposta4, resposta5, resposta6;
 
@@ -34,18 +42,28 @@ public class AdultoJ extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adulto_j);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximo = (Button) findViewById(R.id.btnProximo);
+        this.NOME_MEDICO_SERVICO_DEFINIDO = this.questionario.getRespostas().get(4).getNomeProfServ();
+
+        fltProximo = (FloatingActionButton) findViewById(R.id.fltProximo);
         rdgRespJ1A = (RadioGroup) findViewById(R.id.rdgRespJ1A);
         rdgRespJ2A = (RadioGroup) findViewById(R.id.rdgRespJ2A);
         rdgRespJ3A = (RadioGroup) findViewById(R.id.rdgRespJ3A);
         rdgRespJ4A = (RadioGroup) findViewById(R.id.rdgRespJ4A);
         rdgRespJ5A = (RadioGroup) findViewById(R.id.rdgRespJ5A);
         rdgRespJ6A = (RadioGroup) findViewById(R.id.rdgRespJ6A);
+        txtQuestaoJ1A = (TextView) findViewById(R.id.txtQuestaoJ1A);
+        txtQuestaoJ2A = (TextView) findViewById(R.id.txtQuestaoJ2A);
+        txtQuestaoJ3A = (TextView) findViewById(R.id.txtQuestaoJ3A);
+        txtDescricao1JA = (TextView) findViewById(R.id.txtDescricao1JA);
 
-        btnProximo = (Button) findViewById(R.id.btnProximo);
-        btnProximo.setOnClickListener(new View.OnClickListener() {
+        this.replaceQuestionsAdulto();
+
+        fltProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -169,23 +187,48 @@ public class AdultoJ extends AppCompatActivity {
                 }
                 resposta6.setNumeroQuestao("A-J6");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 90) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("A-J1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-J2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-J3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-J4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-J5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-J6"))
+                            respostas.set(i, resposta6);
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("A-J");
                 calcularEscoreComponente();
                 componente.setEscoreComponente(escoreComponente);
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 10){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("A-J"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(AdultoJ.this, "Escore do Componente J = " + escoreComponente, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(),Escore.class);
+                Intent intent = new Intent(getApplicationContext(),ConfirmarCadastroActivity.class);
                 intent.putExtra("questionario", questionario);
                 startActivity(intent);
             }
@@ -288,4 +331,12 @@ public class AdultoJ extends AppCompatActivity {
 
     }
 
+    @Override
+    public void replaceQuestionsAdulto() {
+        txtQuestaoJ1A.setText( txtQuestaoJ1A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtQuestaoJ2A.setText( txtQuestaoJ2A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtQuestaoJ3A.setText( txtQuestaoJ3A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtDescricao1JA.setText( txtDescricao1JA.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        
+    }
 }

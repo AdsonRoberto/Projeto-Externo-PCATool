@@ -1,29 +1,38 @@
 package com.developer.barbosa.pcatool.activity.adulto;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.interfaces.ReplaceQuestions;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
-public class AdultoE extends AppCompatActivity {
+public class AdultoE extends AppCompatActivity implements ReplaceQuestions{
 
-    private Button btnProximo;
+    private FloatingActionButton fltProximo;
 
     private RadioGroup rdgRespE1A, rdgRespE2A, rdgRespE3A, rdgRespE4A, rdgRespE5A, rdgRespE6A, rdgRespE7A,
             rdgRespE8A, rdgRespE9A;
+    private TextView txtQuestaoE1A, txtQuestaoE2A, txtQuestaoE3A, txtQuestaoE4A, txtQuestaoE5A, txtQuestaoE6A,
+            txtQuestaoE7A, txtQuestaoE8A, txtQuestaoE9A;
 
     private Questionario questionario;
+
+    private static String NOME_MEDICO_SERVICO_DEFINIDO = "nome do serviço de saúde / ou nome médico/enfermeiro";
 
     private Resposta resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8,
             resposta9;
@@ -35,9 +44,14 @@ public class AdultoE extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adulto_e);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximo = (Button) findViewById(R.id.btnProximo);
+        this.NOME_MEDICO_SERVICO_DEFINIDO = this.questionario.getRespostas().get(4).getNomeProfServ();
+
+        fltProximo = (FloatingActionButton) findViewById(R.id.fltProximo);
         rdgRespE1A = (RadioGroup) findViewById(R.id.rdgRespE1A);
         rdgRespE2A = (RadioGroup) findViewById(R.id.rdgRespE2A);
         rdgRespE3A = (RadioGroup) findViewById(R.id.rdgRespE3A);
@@ -47,8 +61,19 @@ public class AdultoE extends AppCompatActivity {
         rdgRespE7A = (RadioGroup) findViewById(R.id.rdgRespE7A);
         rdgRespE8A = (RadioGroup) findViewById(R.id.rdgRespE8A);
         rdgRespE9A = (RadioGroup) findViewById(R.id.rdgRespE9A);
+        txtQuestaoE1A = (TextView) findViewById(R.id.txtQuestaoE1A);
+        txtQuestaoE2A = (TextView) findViewById(R.id.txtQuestaoE2A);
+        txtQuestaoE3A = (TextView) findViewById(R.id.txtQuestaoE3A);
+        txtQuestaoE4A = (TextView) findViewById(R.id.txtQuestaoE4A);
+        txtQuestaoE5A = (TextView) findViewById(R.id.txtQuestaoE5A);
+        txtQuestaoE6A = (TextView) findViewById(R.id.txtQuestaoE6A);
+        txtQuestaoE7A = (TextView) findViewById(R.id.txtQuestaoE7A);
+        txtQuestaoE8A = (TextView) findViewById(R.id.txtQuestaoE8A);
+        txtQuestaoE9A = (TextView) findViewById(R.id.txtQuestaoE9A);
 
-        btnProximo.setOnClickListener(new View.OnClickListener() {
+        this.replaceQuestionsAdulto();
+
+        fltProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -62,7 +87,7 @@ public class AdultoE extends AppCompatActivity {
                         break;
                     case R.id.rdoE1NaoSeiA:
                         resposta1.setOpcao(3);
-                        break;
+                        break;                    
                 }
                 resposta1.setNumeroQuestao("A-E1");
 
@@ -226,22 +251,53 @@ public class AdultoE extends AppCompatActivity {
                 }
                 resposta9.setNumeroQuestao("A-E9");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
-                questionario.getRespostas().add(resposta7);
-                questionario.getRespostas().add(resposta8);
-                questionario.getRespostas().add(resposta9);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 43) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("A-E1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E6"))
+                            respostas.set(i, resposta6);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E7"))
+                            respostas.set(i, resposta7);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E8"))
+                            respostas.set(i, resposta8);
+                        else if (respostas.get(i).getNumeroQuestao().equals("A-E9"))
+                            respostas.set(i, resposta9);                        
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                    questionario.getRespostas().add(resposta7);
+                    questionario.getRespostas().add(resposta8);
+                    questionario.getRespostas().add(resposta9);                    
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("A-E");
                 calcularEscoreComponente();
                 componente.setEscoreComponente(escoreComponente);
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 5){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("A-E"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(AdultoE.this, "Escore do Componente E = " + escoreComponente, Toast.LENGTH_SHORT).show();
 
@@ -368,4 +424,11 @@ public class AdultoE extends AppCompatActivity {
 
     }
 
+    @Override
+    public void replaceQuestionsAdulto() {
+        txtQuestaoE1A.setText( txtQuestaoE1A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtQuestaoE2A.setText( txtQuestaoE2A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtQuestaoE3A.setText( txtQuestaoE3A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+        txtQuestaoE7A.setText( txtQuestaoE7A.getText().toString().replaceAll(NOME_SERVICO_MEDICO, NOME_MEDICO_SERVICO_DEFINIDO) );
+    }
 }

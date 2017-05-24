@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/color_background_dash_boas_vindas"
+    android:orientation="vertical"
+    tools:context="com.developer.barbosa.pcatool.activity.telas.BoasVindasActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/colorPrimaryVerdeEscuro"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            app:srcCompat="@drawable/img_entrevistador" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="40dp"
+        android:paddingTop="40dp"
+        android:text="Bem vindo(a) ao app PCATool"
+        android:textColor="@color/colorPrimaryCinzaEscuroTexto"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Identificação do Entrevistador"
+        android:textColor="@color/colorPrimaryCinzaEscuroTexto"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="30dp"
+        android:text="Por favor, informe o seu nome"
+        android:textColor="@color/colorPrimaryCinzaEscuroTexto"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtIdentEntrevistador"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:allowUndo="false"
+        android:drawableLeft="@drawable/ic_action_name"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Digite seu nome"
+        android:inputType="text|textCapCharacters|textCapWords|textCapSentences"
+        android:textColor="@color/colorPrimaryCinzaEscuroTexto" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fltAvancar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimaryVerdeEscuro"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/seta_avancar" />
+</LinearLayout>

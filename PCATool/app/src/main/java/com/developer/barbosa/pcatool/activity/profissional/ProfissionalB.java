@@ -1,24 +1,27 @@
 package com.developer.barbosa.pcatool.activity.profissional;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.developer.barbosa.pcatool.R;
-import com.developer.barbosa.pcatool.model.Componente;
-import com.developer.barbosa.pcatool.model.Questionario;
-import com.developer.barbosa.pcatool.model.Resposta;
+import com.developer.barbosa.pcatool.model.domain.Componente;
+import com.developer.barbosa.pcatool.model.domain.Questionario;
+import com.developer.barbosa.pcatool.model.domain.Resposta;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class ProfissionalB extends AppCompatActivity {
 
-    private Button btnProximoP;
+    private FloatingActionButton fltProximoP;
 
     private RadioGroup rdgRespB1P, rdgRespB2P, rdgRespB3P, rdgRespB4P, rdgRespB5P, rdgRespB6P,
             rdgRespB7P, rdgRespB8P, rdgRespB9P, rdgRespB10P, rdgRespB11P, rdgRespB12P, rdgRespB13P;
@@ -34,9 +37,12 @@ public class ProfissionalB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissional_b);
 
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006E70")));
+
         this.questionario = (Questionario) this.getIntent().getSerializableExtra("questionario");
 
-        btnProximoP = (Button) findViewById(R.id.btnProximoP);
+        fltProximoP = (FloatingActionButton) findViewById(R.id.fltProximoP);
         rdgRespB1P = (RadioGroup) findViewById(R.id.rdgRespB1P);
         rdgRespB2P = (RadioGroup) findViewById(R.id.rdgRespB2P);
         rdgRespB3P = (RadioGroup) findViewById(R.id.rdgRespB3P);
@@ -51,7 +57,7 @@ public class ProfissionalB extends AppCompatActivity {
         rdgRespB12P = (RadioGroup) findViewById(R.id.rdgRespB12P);
         rdgRespB13P = (RadioGroup) findViewById(R.id.rdgRespB13P);
 
-        btnProximoP.setOnClickListener(new View.OnClickListener() {
+        fltProximoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -315,28 +321,67 @@ public class ProfissionalB extends AppCompatActivity {
                 }
                 resposta13.setNumeroQuestao("P-B13");
 
-                questionario.getRespostas().add(resposta1);
-                questionario.getRespostas().add(resposta2);
-                questionario.getRespostas().add(resposta3);
-                questionario.getRespostas().add(resposta4);
-                questionario.getRespostas().add(resposta5);
-                questionario.getRespostas().add(resposta6);
-                questionario.getRespostas().add(resposta7);
-                questionario.getRespostas().add(resposta8);
-                questionario.getRespostas().add(resposta9);
-                questionario.getRespostas().add(resposta10);
-                questionario.getRespostas().add(resposta11);
-                questionario.getRespostas().add(resposta12);
-                questionario.getRespostas().add(resposta13);
+                ArrayList<Resposta> respostas = questionario.getRespostas();
+                if(respostas.size() >= 22) {
+                    for (int i = 0; i < respostas.size(); i++) {
+                        if (respostas.get(i).getNumeroQuestao().equals("P-B1"))
+                            respostas.set(i, resposta1);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B2"))
+                            respostas.set(i, resposta2);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B3"))
+                            respostas.set(i, resposta3);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B4"))
+                            respostas.set(i, resposta4);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B5"))
+                            respostas.set(i, resposta5);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B6"))
+                            respostas.set(i, resposta6);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B7"))
+                            respostas.set(i, resposta7);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B8"))
+                            respostas.set(i, resposta8);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B9"))
+                            respostas.set(i, resposta9);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B10"))
+                            respostas.set(i, resposta10);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B11"))
+                            respostas.set(i, resposta11);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B12"))
+                            respostas.set(i, resposta12);
+                        else if (respostas.get(i).getNumeroQuestao().equals("P-B13"))
+                            respostas.set(i, resposta13);                        
+                    }
+                } else {
+                    questionario.getRespostas().add(resposta1);
+                    questionario.getRespostas().add(resposta2);
+                    questionario.getRespostas().add(resposta3);
+                    questionario.getRespostas().add(resposta4);
+                    questionario.getRespostas().add(resposta5);
+                    questionario.getRespostas().add(resposta6);
+                    questionario.getRespostas().add(resposta7);
+                    questionario.getRespostas().add(resposta8);
+                    questionario.getRespostas().add(resposta9);
+                    questionario.getRespostas().add(resposta10);
+                    questionario.getRespostas().add(resposta11);
+                    questionario.getRespostas().add(resposta12);
+                    questionario.getRespostas().add(resposta13);
+                }
 
                 Componente componente = new Componente();
                 componente.setLetraComponente("P-B");
                 componente.setEscoreComponente( calcularEscoreComponente() );
 
-                questionario.getComponentes().add(componente);
+                ArrayList<Componente> componentes = questionario.getComponentes();
+                if(componentes.size() >= 2){
+                    for(int i = 0; i < componentes.size(); i++){
+                        if(componentes.get(i).getLetraComponente().equals("P-B"))
+                            componentes.set(i, componente);
+                    }
+                } else
+                    questionario.getComponentes().add(componente);
 
                 Toast.makeText(ProfissionalB.this, "Escore do Componente B = " + escoreComponente, Toast.LENGTH_SHORT).show();
-
+                
                 Intent intent = new Intent(getApplicationContext(),ProfissionalC.class);
                 intent.putExtra("questionario", questionario);
                 startActivity(intent);
@@ -385,7 +430,7 @@ public class ProfissionalB extends AppCompatActivity {
         }
         if (resposta13.getOpcao() == 0 || resposta13.getOpcao() == 5){
             numeroDeRespostasBrancasOuNaoSei++;
-        }
+        }        
 
         return (numeroDeRespostasBrancasOuNaoSei/13 < 0.5);
     }
@@ -458,7 +503,7 @@ public class ProfissionalB extends AppCompatActivity {
         } else {
             somatorioDosItens += 2;
         }
-
+        
         return somatorioDosItens;
     }
 
@@ -482,5 +527,5 @@ public class ProfissionalB extends AppCompatActivity {
         return this.escoreComponente;
 
     }
-
+    
 }

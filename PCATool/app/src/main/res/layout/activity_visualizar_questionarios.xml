@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryVerdeClaro"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context="com.developer.barbosa.pcatool.activity.telas.VisualizarQuestionariosActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtTotalDeQuestionarios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TOTAL DE QUESTIONÁRIOS = X "
+            android:textColor="@color/colorPrimaryCinzaEscuroTexto"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvQuestionarios"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+
+</LinearLayout>
