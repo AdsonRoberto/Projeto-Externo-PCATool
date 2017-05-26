@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/color_background_dash_boas_vindas"
     android:orientation="vertical"
-    tools:context="com.developer.barbosa.pcatool.activity.telas.BoasVindasActivity">
+    tools:context=".activity.telas.BoasVindasActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

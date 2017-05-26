@@ -7,7 +7,7 @@
     android:background="@color/colorPrimaryVerdeClaro"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context="com.developer.barbosa.pcatool.activity.telas.VisualizarQuestionariosActivity">
+    tools:context=".activity.telas.VisualizarQuestionariosActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

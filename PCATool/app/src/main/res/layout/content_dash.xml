@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.developer.barbosa.pcatool.activity.telas.DashActivity"
+    tools:context=".activity.telas.DashActivity"
     tools:showIn="@layout/activity_dash"
     android:background="@color/colorPrimaryVerdeClaro">
 
