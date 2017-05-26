@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import br.uece.gesad.pcatoolbrasil.R;
+import br.uece.gesad.pcatoolbrasil.model.dao.EntrevistadorDAO;
 import br.uece.gesad.pcatoolbrasil.model.dao.PostoDAO;
 import br.uece.gesad.pcatoolbrasil.model.dao.RegionalDAO;
 
@@ -25,6 +26,7 @@ public class DashActivity extends AppCompatActivity {
 
     private RegionalDAO regionalDAO;
     private PostoDAO postoDAO;
+    private EntrevistadorDAO entrevistadorDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class DashActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         cadastrarRegionaisPostos();
+
+        entrevistadorDAO = new EntrevistadorDAO(this);
 
         opcNovaEntrevista = (LinearLayout) findViewById(R.id.opcNovaEntrevista);
         opcVisualizarQuestionarios = (LinearLayout) findViewById(R.id.opcVisualizarQuestionarios);
@@ -110,7 +114,7 @@ public class DashActivity extends AppCompatActivity {
 
     public boolean primeiroAcesso(){
         SharedPreferences preferences = getSharedPreferences(SHARED_PREF_PRIMEIRO_ACESSO, Context.MODE_PRIVATE);
-        if (preferences.getBoolean("primeiroAcesso",true)){
+        if (preferences.getBoolean("primeiroAcesso",true)  || entrevistadorDAO.getEntrevistador() == null){
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("primeiroAcesso", false);
             editor.commit();
